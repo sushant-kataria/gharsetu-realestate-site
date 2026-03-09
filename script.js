@@ -534,8 +534,10 @@ const setupBuyerBrief = () => {
     const resultPanel = document.querySelector("[data-buyer-brief-result]");
     const summaryNode = resultPanel?.querySelector("[data-buyer-summary]");
     const linksNode = resultPanel?.querySelector("[data-buyer-links]");
+    const messageNode = form.querySelector("[data-buyer-brief-message]");
+    const button = form.querySelector("button[type='submit']");
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const formData = new FormData(form);
@@ -543,6 +545,10 @@ const setupBuyerBrief = () => {
       const homeType = String(formData.get("home_type") || "");
       const budget = String(formData.get("budget") || "");
       const timeline = String(formData.get("timeline") || "");
+      const action = form.getAttribute("action") || "";
+      const endpoint = action.startsWith("https://formsubmit.co/")
+        ? action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/")
+        : action;
 
       const suggestions = [];
 
@@ -578,6 +584,49 @@ const setupBuyerBrief = () => {
 
       if (resultPanel) {
         resultPanel.hidden = false;
+      }
+
+      if (button) {
+        const original = button.textContent;
+        button.dataset.originalText = original;
+        button.textContent = "Sending...";
+        button.disabled = true;
+      }
+
+      formData.set("_url", window.location.href);
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
+
+        if (messageNode) {
+          messageNode.textContent = "Buyer brief sent. We will reach out shortly.";
+        }
+      } catch (error) {
+        if (messageNode) {
+          messageNode.textContent =
+            "We could not send the brief right now. Email y2khouseofrealty@gmail.com or call +91 99715 20011.";
+        }
+      } finally {
+        if (button) {
+          button.textContent = button.dataset.originalText || "Show my options";
+          button.disabled = false;
+        }
+
+        if (messageNode) {
+          window.setTimeout(() => {
+            messageNode.textContent = "";
+          }, 4000);
+        }
       }
     });
   });
