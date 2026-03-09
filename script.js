@@ -116,8 +116,8 @@ const renderFooter = () => {
             <h3 class="section-title">Legal</h3>
             <div class="footer-links">${linksMarkup(siteConfig.legalLinks)}</div>
             <div class="footer-links" style="margin-top: 12px;">
-              <span>support@gharsetu.in</span>
-              <span>+91 93556 68833</span>
+              <span>y2khouseofrealty@gmail.com</span>
+              <span>+91 99715 20011</span>
               <span>Golf Course Road, Gurugram</span>
             </div>
           </section>
@@ -217,27 +217,61 @@ const setupPricing = () => {
 
 const setupForms = () => {
   document.querySelectorAll("[data-ui-form]").forEach((form) => {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const button = form.querySelector("button[type='submit']");
       const message = form.querySelector("[data-form-message]");
+      const action = form.getAttribute("action") || "";
+      const endpoint = action.startsWith("https://formsubmit.co/")
+        ? action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/")
+        : action;
+      const formData = new FormData(form);
 
       if (button) {
         const original = button.textContent;
-        button.textContent = "Submitted";
+        button.dataset.originalText = original;
+        button.textContent = "Sending...";
         button.disabled = true;
-        window.setTimeout(() => {
-          button.textContent = original;
-          button.disabled = false;
-        }, 2200);
       }
 
-      if (message) {
-        message.textContent = "Thanks. Your request has been recorded.";
-        window.setTimeout(() => {
-          message.textContent = "";
-        }, 2600);
+      formData.set("_url", window.location.href);
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
+
+        if (message) {
+          message.textContent = "Thanks. Your enquiry has been sent.";
+        }
+
+        form.reset();
+      } catch (error) {
+        if (message) {
+          message.textContent =
+            "We could not send your enquiry right now. Email y2khouseofrealty@gmail.com or call +91 99715 20011.";
+        }
+      } finally {
+        if (button) {
+          const original = button.dataset.originalText || "Send enquiry";
+          button.textContent = original;
+          button.disabled = false;
+        }
+
+        if (message) {
+          window.setTimeout(() => {
+            message.textContent = "";
+          }, 4000);
+        }
       }
     });
   });

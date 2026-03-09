@@ -18,6 +18,7 @@ This project is plain HTML, CSS, JavaScript, and local SVG assets. There is no b
 
 ## Notes
 
-- The contact forms are UI-only right now and do not submit to a backend.
+- The contact form posts to `formsubmit.co` and forwards enquiries to `y2khouseofrealty@gmail.com`.
+- On the first live submission, FormSubmit may send an activation email to `y2khouseofrealty@gmail.com`. That inbox owner must confirm it once before forwarding starts.
 - Google Fonts are loaded from `fonts.googleapis.com` and `fonts.gstatic.com`.
 - The nested Gurgaon route is served from `gurgaon/builder-floors/index.html`.
