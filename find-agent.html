@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Agent | GharSetu</title>
+    <meta
+      name="description"
+      content="Find verified real estate agents across Indian micro-markets."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="find-agent">
+    <div data-site-header></div>
+    <main data-filter-root>
+      <section class="page-hero">
+        <div class="container page-hero-copy" data-reveal>
+          <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="find-agent.html">Find Agent</a></div>
+          <p class="eyebrow">Agent discovery</p>
+          <h1 class="page-title">Find agents by city, micro-market, and property specialisation.</h1>
+          <p class="page-copy" style="margin-top: 18px;">
+            This page presents a cleaner, searchable agent directory for the Indian market.
+          </p>
+          <img class="content-illustration listing-thumb" src="assets/agent-network.svg" alt="Illustration of verified agent discovery across Indian cities." style="margin-top: 24px;" />
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="search-panel" data-reveal>
+            <input type="search" placeholder="Search Gurugram, Noida, South Delhi, villas, resale..." aria-label="Search agents" data-filter-input />
+            <div class="filter-field">
+              <label for="agent-sort">Sort by</label>
+              <select id="agent-sort" data-filter-sort>
+                <option value="featured">Featured</option>
+                <option value="rating-desc">Top rated</option>
+                <option value="experience-desc">Most experienced</option>
+              </select>
+            </div>
+            <button class="pill filter-chip is-active" type="button" data-filter-chip-group="city" data-filter-chip="all">All cities</button>
+            <button class="pill filter-chip" type="button" data-filter-chip-group="city" data-filter-chip="ncr">Delhi-NCR</button>
+            <button class="pill filter-chip" type="button" data-filter-chip-group="city" data-filter-chip="mumbai">Mumbai</button>
+            <button class="pill filter-chip" type="button" data-filter-chip-group="city" data-filter-chip="bangalore">Bengaluru</button>
+            <button class="pill filter-chip is-active" type="button" data-filter-chip-group="speciality" data-filter-chip="all">All specialities</button>
+            <button class="pill filter-chip" type="button" data-filter-chip-group="speciality" data-filter-chip="luxury">Luxury</button>
+            <button class="pill filter-chip" type="button" data-filter-chip-group="speciality" data-filter-chip="builderfloors">Builder Floors</button>
+            <button class="pill filter-chip" type="button" data-filter-chip-group="speciality" data-filter-chip="villas">Villas</button>
+            <span class="pill">Profiles <strong data-filter-count style="margin-left: 6px;">0</strong></span>
+            <span class="pill">Saved <strong data-save-count style="margin-left: 6px;">0</strong></span>
+          </div>
+
+          <div class="listing-grid" style="margin-top: 20px;" data-filter-results>
+            <article class="profile-card" data-filter-item data-order="1" data-city="ncr" data-speciality="luxury" data-experience-value="12" data-rating-value="49" data-search="gurugram golf course road luxury apartments resale" data-reveal>
+              <img class="content-illustration listing-thumb" src="assets/broker-meeting.svg" alt="Illustration of a Gurugram broker consulting a buyer." />
+              <h3>Riya Arora</h3>
+              <p class="listing-meta">Gurugram • Luxury apartments • Resale + primary</p>
+              <ul class="simple-list">
+                <li>Focus: Golf Course Road, Extension Road, Sector 57</li>
+                <li>Known for high-clarity buyer briefs and fast response</li>
+              </ul>
+              <div class="listing-actions">
+                <a class="button button-secondary" href="tel:+919355668833">Call</a>
+                <button class="button button-secondary action-toggle" type="button" data-save-toggle data-save-id="agent-riya-arora" data-saved-text="Saved">Save</button>
+              </div>
+            </article>
+            <article class="profile-card" data-filter-item data-order="2" data-city="ncr" data-speciality="builderfloors" data-experience-value="15" data-rating-value="48" data-search="south delhi builder floors greater kailash defence colony" data-reveal data-reveal-delay="80">
+              <img class="content-illustration listing-thumb" src="assets/builder-floor.svg" alt="Illustration of a South Delhi builder-floor specialist." />
+              <h3>Dev Khanna</h3>
+              <p class="listing-meta">South Delhi • Builder floors • Investor clients</p>
+              <ul class="simple-list">
+                <li>Focus: GK, Defence Colony, South Extension</li>
+                <li>Specialises in low-rise premium floor transactions</li>
+              </ul>
+              <div class="listing-actions">
+                <a class="button button-secondary" href="tel:+919355668833">Call</a>
+                <button class="button button-secondary action-toggle" type="button" data-save-toggle data-save-id="agent-dev-khanna" data-saved-text="Saved">Save</button>
+              </div>
+            </article>
+            <article class="profile-card" data-filter-item data-order="3" data-city="mumbai" data-speciality="luxury" data-experience-value="10" data-rating-value="47" data-search="thane mulund luxury homes mumbai" data-reveal data-reveal-delay="160">
+              <img class="content-illustration listing-thumb" src="assets/luxury-interior.svg" alt="Illustration of a premium Mumbai residential search." />
+              <h3>Sana Merchant</h3>
+              <p class="listing-meta">Mumbai Region • Thane, Powai, Mulund</p>
+              <ul class="simple-list">
+                <li>Focus: End-user and upgrade buyers</li>
+                <li>Strength: commute-led location shortlists</li>
+              </ul>
+              <div class="listing-actions">
+                <a class="button button-secondary" href="tel:+919355668833">Call</a>
+                <button class="button button-secondary action-toggle" type="button" data-save-toggle data-save-id="agent-sana-merchant" data-saved-text="Saved">Save</button>
+              </div>
+            </article>
+            <article class="profile-card" data-filter-item data-order="4" data-city="bangalore" data-speciality="villas" data-experience-value="11" data-rating-value="48" data-search="bangalore whitefield sarjapur villas plots" data-reveal data-reveal-delay="240">
+              <img class="content-illustration listing-thumb" src="assets/site-visit.svg" alt="Illustration of a Bengaluru villa site visit." />
+              <h3>Harshita Nair</h3>
+              <p class="listing-meta">Bengaluru • Villas and plotted developments</p>
+              <ul class="simple-list">
+                <li>Focus: Whitefield, Sarjapur, North Bengaluru</li>
+                <li>Works on upgrade and NRI buying mandates</li>
+              </ul>
+              <div class="listing-actions">
+                <a class="button button-secondary" href="tel:+919355668833">Call</a>
+                <button class="button button-secondary action-toggle" type="button" data-save-toggle data-save-id="agent-harshita-nair" data-saved-text="Saved">Save</button>
+              </div>
+            </article>
+            <article class="profile-card" data-filter-item data-order="5" data-city="ncr" data-speciality="luxury" data-experience-value="13" data-rating-value="50" data-search="noida expressway luxury projects high rise investor clients" data-reveal data-reveal-delay="320">
+              <img class="content-illustration listing-thumb" src="assets/home-city.svg" alt="Illustration of a Noida luxury project specialist." />
+              <h3>Kabir Bhasin</h3>
+              <p class="listing-meta">Noida • Luxury projects • Investor + upgrade clients</p>
+              <ul class="simple-list">
+                <li>Focus: Sector 150, Expressway, premium launch inventory</li>
+                <li>Known for data-led project comparisons and launch access</li>
+              </ul>
+              <div class="listing-actions">
+                <a class="button button-secondary" href="tel:+919355668833">Call</a>
+                <button class="button button-secondary action-toggle" type="button" data-save-toggle data-save-id="agent-kabir-bhasin" data-saved-text="Saved">Save</button>
+              </div>
+            </article>
+            <article class="profile-card" data-filter-item data-order="6" data-city="ncr" data-speciality="builderfloors" data-experience-value="9" data-rating-value="46" data-search="gurugram builder floors golf course extension low rise premium" data-reveal data-reveal-delay="400">
+              <img class="content-illustration listing-thumb" src="assets/floor-listing-a.svg" alt="Illustration of a Gurgaon builder-floor specialist profile." />
+              <h3>Meher Sethi</h3>
+              <p class="listing-meta">Gurugram • Builder floors • Low-rise premium stock</p>
+              <ul class="simple-list">
+                <li>Focus: Sector 45 to 57, Sushant Lok, Golf Course extension belt</li>
+                <li>Best for family-use floor searches and quick site visits</li>
+              </ul>
+              <div class="listing-actions">
+                <a class="button button-secondary" href="tel:+919355668833">Call</a>
+                <button class="button button-secondary action-toggle" type="button" data-save-toggle data-save-id="agent-meher-sethi" data-saved-text="Saved">Save</button>
+              </div>
+            </article>
+          </div>
+          <article class="card empty-state" data-filter-empty hidden style="margin-top: 20px;">
+            <h3>No profiles match this filter set.</h3>
+            <p class="card-copy">Try another city or speciality to widen the shortlist.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="96" height="96" rx="24" fill="#FFF4F1"/>
+  <path d="M24 68V40L37 36V68" stroke="#D13228" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M39 68V24H59V68" stroke="#D13228" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M61 68V34H72V68" stroke="#D13228" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M46 32H50" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M46 40H50" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M46 48H50" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M55 32H57" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M55 40H57" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M55 48H57" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M30 46H32" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M30 54H32" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M66 42H68" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M66 50H68" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+  <path d="M24 72H72" stroke="#D13228" stroke-width="4" stroke-linecap="round"/>
+</svg>

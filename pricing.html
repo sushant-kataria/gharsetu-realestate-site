@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing | GharSetu</title>
+    <meta
+      name="description"
+      content="Subscription pricing for the GharSetu proptech website, adapted for the Indian market."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="pricing">
+    <div data-site-header></div>
+    <main data-pricing>
+      <section class="page-hero">
+        <div class="container page-hero-grid">
+          <div class="page-hero-copy" data-reveal>
+            <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="pricing.html">Pricing</a></div>
+            <p class="eyebrow">Pricing and plans</p>
+            <h1 class="page-title">Straightforward rupee pricing for brokers, teams, builders, and launch partners.</h1>
+            <p class="page-copy" style="margin-top: 18px;">
+              The pricing experience uses clear monthly and annual framing and makes the plans
+              easier to compare at a glance.
+            </p>
+          </div>
+          <aside class="hero-panel" data-reveal data-reveal-delay="100">
+            <img class="hero-illustration" src="assets/site-visit.svg" alt="Illustration of a premium residential site visit and project facade." />
+            <div class="pricing-switch">
+              <button type="button" class="is-active" data-plan-toggle="monthly">Monthly</button>
+              <button type="button" data-plan-toggle="annual">Annual</button>
+            </div>
+            <div class="metric">
+              <strong>GST ready</strong>
+              <span>Pricing is framed for Indian SaaS-style buying conversations.</span>
+            </div>
+            <div class="metric">
+              <strong>UPI friendly</strong>
+              <span>Cards, netbanking, and UPI can be presented in the plan FAQ and checkout layer.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container price-grid">
+          <article class="price-card" data-price-card data-reveal>
+            <img class="content-illustration listing-thumb" src="assets/broker-meeting.svg" alt="Illustration of a broker consultation session." />
+            <span class="status-pill">Solo Agent</span>
+            <h3>Starter</h3>
+            <strong>
+              <span data-price-monthly>₹2,999</span>
+              <span data-price-annual hidden>₹29,999</span>
+              <span data-price-suffix>/month</span>
+            </strong>
+            <p class="card-copy">For individual brokers who want verified inventory, better matching, and cleaner client sharing.</p>
+            <ul>
+              <li>Inventory dashboard</li>
+              <li>10 buy requirements/month</li>
+              <li>5 active sell listings/month</li>
+              <li>Basic help desk</li>
+            </ul>
+          </article>
+          <article class="price-card featured" data-price-card data-reveal data-reveal-delay="90">
+            <img class="content-illustration listing-thumb" src="assets/home-city.svg" alt="Illustration of a city property dashboard for broker teams." />
+            <span class="status-pill">Broker Team</span>
+            <h3>Growth</h3>
+            <strong>
+              <span data-price-monthly>₹7,499</span>
+              <span data-price-annual hidden>₹74,999</span>
+              <span data-price-suffix>/month</span>
+            </strong>
+            <p class="card-copy">For active teams working across launch inventory, resale, and builder floors.</p>
+            <ul>
+              <li>Unlimited internal users</li>
+              <li>Priority matchmaking</li>
+              <li>Builder floor category access</li>
+              <li>Map and insight toolkit</li>
+            </ul>
+          </article>
+          <article class="price-card" data-price-card data-reveal data-reveal-delay="180">
+            <img class="content-illustration listing-thumb" src="assets/developer-launch.svg" alt="Illustration of a developer project launch and inventory system." />
+            <span class="status-pill">Enterprise</span>
+            <h3>Developer & Builder</h3>
+            <strong>
+              <span data-price-monthly>Custom</span>
+              <span data-price-annual hidden>Custom</span>
+              <span data-price-suffix></span>
+            </strong>
+            <p class="card-copy">For project launches, partner programs, premium clubs, and branded page systems.</p>
+            <ul>
+              <li>Project page setup</li>
+              <li>Brokerage slab communication</li>
+              <li>Custom onboarding</li>
+              <li>Dedicated support channel</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="table-wrap" data-reveal>
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Included</th>
+                  <th>Starter</th>
+                  <th>Growth</th>
+                  <th>Developer & Builder</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Verified inventory access</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Builder floor discovery</td>
+                  <td>Limited</td>
+                  <td>Full</td>
+                  <td>Full</td>
+                </tr>
+                <tr>
+                  <td>Project showcase pages</td>
+                  <td>No</td>
+                  <td>Optional</td>
+                  <td>Included</td>
+                </tr>
+                <tr>
+                  <td>Dedicated onboarding</td>
+                  <td>No</td>
+                  <td>Shared</td>
+                  <td>Yes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid-2">
+          <article class="card" data-reveal>
+            <h3>Frequently asked pricing questions</h3>
+            <div class="faq-list" style="margin-top: 16px;">
+              <details class="faq-item" open>
+                <summary>What payment methods can be shown here?</summary>
+                <p>UPI, cards, netbanking, and invoice-led payment flows for enterprise accounts.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Can plans be upgraded?</summary>
+                <p>Yes. The interface is structured so agents can move into a team or partner plan as requirements grow.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Can the annual plan be discounted?</summary>
+                <p>Yes. The annual toggle already supports a separate pricing view, which can include discount framing.</p>
+              </details>
+            </div>
+          </article>
+          <article class="card surface-accent" data-reveal data-reveal-delay="90">
+            <h3>Need a builder or developer quote?</h3>
+            <p class="card-copy">
+              The enterprise page type is intentionally separated because launch pages, brokerage
+              slabs, and partner onboarding work differently than an individual broker subscription.
+            </p>
+            <a class="button button-primary" href="contact.html">Talk to sales</a>
+          </article>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="script.js"></script>
+  </body>
+</html>

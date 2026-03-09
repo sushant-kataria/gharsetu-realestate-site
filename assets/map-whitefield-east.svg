@@ -1,0 +1,22 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="520" rx="36" fill="#F7FBF9"/>
+  <rect x="36" y="36" width="728" height="448" rx="28" fill="#FBFEFD" stroke="#D7E7E0" stroke-width="2"/>
+  <path d="M122 108H682" stroke="#C6DED6" stroke-width="18" stroke-linecap="round"/>
+  <path d="M108 214H694" stroke="#D6E6DF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M126 332H676" stroke="#C6DED6" stroke-width="18" stroke-linecap="round"/>
+  <path d="M210 88V430" stroke="#C6DED6" stroke-width="16" stroke-linecap="round"/>
+  <path d="M394 80V430" stroke="#D6E6DF" stroke-width="18" stroke-linecap="round"/>
+  <path d="M578 92V432" stroke="#C6DED6" stroke-width="16" stroke-linecap="round"/>
+  <rect x="240" y="132" width="118" height="74" rx="16" fill="#0F766E" fill-opacity="0.14" stroke="#0F766E" stroke-width="3"/>
+  <rect x="420" y="132" width="120" height="74" rx="16" fill="#D13228" fill-opacity="0.14" stroke="#D13228" stroke-width="3"/>
+  <rect x="420" y="248" width="120" height="68" rx="16" fill="#F97316" fill-opacity="0.16" stroke="#C45512" stroke-width="3"/>
+  <rect x="238" y="250" width="122" height="68" rx="16" fill="#1D4ED8" fill-opacity="0.12" stroke="#1D4ED8" stroke-width="3"/>
+  <text x="70" y="78" fill="#14213D" font-family="Arial, sans-serif" font-size="28" font-weight="700">Whitefield East, Bengaluru</text>
+  <text x="70" y="108" fill="#64748B" font-family="Arial, sans-serif" font-size="16">Office-led demand, metro growth, apartment and mixed-use inventory</text>
+  <text x="262" y="176" fill="#14213D" font-family="Arial, sans-serif" font-size="17" font-weight="700">IT Corridor</text>
+  <text x="446" y="176" fill="#14213D" font-family="Arial, sans-serif" font-size="17" font-weight="700">Primary Projects</text>
+  <text x="444" y="290" fill="#14213D" font-family="Arial, sans-serif" font-size="17" font-weight="700">Retail Spine</text>
+  <text x="262" y="290" fill="#14213D" font-family="Arial, sans-serif" font-size="17" font-weight="700">Resale Clusters</text>
+  <text x="582" y="106" fill="#6B7E8F" font-family="Arial, sans-serif" font-size="13" font-weight="700">Outer Ring Connector</text>
+  <text x="558" y="464" fill="#6B7E8F" font-family="Arial, sans-serif" font-size="14">Sample locality map</text>
+</svg>

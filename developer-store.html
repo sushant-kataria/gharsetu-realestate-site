@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer Store | GharSetu</title>
+    <meta
+      name="description"
+      content="A developer launch and project discovery page for Indian channel partners."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="developer-store">
+    <div data-site-header></div>
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-copy" data-reveal>
+          <div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><a href="developer-store.html">Developer Store</a></div>
+          <p class="eyebrow">Launch inventory</p>
+          <h1 class="page-title">Project launches and partner-ready inventory cards for developers.</h1>
+          <p class="page-copy" style="margin-top: 18px;">
+            This page acts as the developer-facing discovery route, complementing the broader
+            developer pitch page and linking into specific project detail pages.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid-3">
+          <article class="listing-card" data-reveal>
+            <img class="content-illustration listing-thumb" src="assets/developer-launch.svg" alt="Illustration of a project launch on Dwarka Expressway." />
+            <div class="listing-price">New launch</div>
+            <h3>Urban Crest 101, Dwarka Expressway</h3>
+            <p class="listing-meta">3 and 4 BHK • Developer slab open • Channel partner onboarding active</p>
+            <a class="button button-ghost" href="project-detail.html">View project</a>
+          </article>
+          <article class="listing-card" data-reveal data-reveal-delay="90">
+            <img class="content-illustration listing-thumb" src="assets/goa-villa.svg" alt="Illustration of a premium Goa launch project." />
+            <div class="listing-price">Premium launch</div>
+            <h3>Harbour Residences, Goa</h3>
+            <p class="listing-meta">Second-home product • Premium club route • Hospitality-backed pitch</p>
+            <a class="button button-ghost" href="project-detail.html">View project</a>
+          </article>
+          <article class="listing-card" data-reveal data-reveal-delay="180">
+            <img class="content-illustration listing-thumb" src="assets/commercial-tower.svg" alt="Illustration of a Whitefield launch project." />
+            <div class="listing-price">Coming soon</div>
+            <h3>Eastline Greens, Whitefield</h3>
+            <p class="listing-meta">Launch prep page • Agent briefing deck • Priority access for partner network</p>
+            <a class="button button-ghost" href="project-detail.html">View project</a>
+          </article>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="script.js"></script>
+  </body>
+</html>
