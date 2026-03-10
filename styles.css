@@ -330,15 +330,6 @@ main {
   text-transform: uppercase;
 }
 
-.eyebrow-stack {
-  display: inline-grid;
-  gap: 2px;
-}
-
-.eyebrow-stack span {
-  display: block;
-}
-
 .page-hero,
 .home-hero {
   padding: 36px 0 24px;
@@ -1319,6 +1310,27 @@ main {
 
 .breadcrumbs span {
   opacity: 0.6;
+}
+
+.breadcrumbs-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.breadcrumbs-main {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.breadcrumbs-sub {
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 1;
 }
 
 .legal-copy {
