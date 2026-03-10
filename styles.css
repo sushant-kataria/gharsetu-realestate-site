@@ -330,6 +330,15 @@ main {
   text-transform: uppercase;
 }
 
+.eyebrow-stack {
+  display: inline-grid;
+  gap: 2px;
+}
+
+.eyebrow-stack span {
+  display: block;
+}
+
 .page-hero,
 .home-hero {
   padding: 36px 0 24px;
