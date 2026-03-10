@@ -1701,6 +1701,14 @@ main {
     border-radius: 20px;
   }
 
+  .header-actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    margin-left: auto;
+  }
+
   .header-actions .button-primary {
     display: none;
   }
