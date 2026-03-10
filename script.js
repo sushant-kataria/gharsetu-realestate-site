@@ -61,6 +61,7 @@ const renderHeader = () => {
         <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
           <span></span>
           <span></span>
+          <span></span>
         </button>
         <nav class="site-nav" aria-label="Primary">
           ${navLinks}
@@ -142,6 +143,7 @@ const setupNavigation = () => {
   menuToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.classList.toggle("is-open", isOpen);
     document.body.classList.toggle("no-scroll", isOpen);
   });
 
@@ -149,6 +151,7 @@ const setupNavigation = () => {
     link.addEventListener("click", () => {
       siteNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.classList.remove("is-open");
       document.body.classList.remove("no-scroll");
     });
   });
