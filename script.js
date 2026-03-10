@@ -189,6 +189,31 @@ const setupReveal = () => {
   nodes.forEach((node) => observer.observe(node));
 };
 
+const setupHeroMeta = () => {
+  document.querySelectorAll(".page-hero .breadcrumbs:not(.breadcrumbs-stack)").forEach((breadcrumbs) => {
+    const eyebrow = breadcrumbs.nextElementSibling;
+
+    if (!eyebrow || !eyebrow.classList.contains("eyebrow")) {
+      return;
+    }
+
+    const main = document.createElement("div");
+    main.className = "breadcrumbs-main";
+
+    while (breadcrumbs.firstChild) {
+      main.appendChild(breadcrumbs.firstChild);
+    }
+
+    const sub = document.createElement("div");
+    sub.className = "breadcrumbs-sub";
+    sub.textContent = eyebrow.textContent.trim();
+
+    breadcrumbs.classList.add("breadcrumbs-stack");
+    breadcrumbs.append(main, sub);
+    eyebrow.remove();
+  });
+};
+
 const setupPricing = () => {
   document.querySelectorAll("[data-pricing]").forEach((root) => {
     root.querySelectorAll("[data-plan-toggle]").forEach((button) => {
@@ -685,6 +710,7 @@ const setupCounters = () => {
 renderHeader();
 renderFooter();
 setupNavigation();
+setupHeroMeta();
 setupReveal();
 setupPricing();
 setupForms();
