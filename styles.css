@@ -1754,3 +1754,357 @@ main {
     display: none;
   }
 }
+
+/* ── Announcement bar ───────────────────────────────────────────────── */
+
+.announcement-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 11px 20px;
+  background: linear-gradient(90deg, var(--brand-deep), var(--brand));
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.announcement-bar a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.announcement-bar a:hover {
+  opacity: 0.85;
+}
+
+.announcement-dismiss {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.announcement-dismiss:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ── WhatsApp floating action button ───────────────────────────────── */
+
+.whatsapp-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 0 16px;
+  height: 54px;
+  border: 0;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.38);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.46);
+  color: #fff;
+}
+
+.whatsapp-fab svg {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-fab span.fab-label {
+    display: none;
+  }
+
+  .whatsapp-fab {
+    width: 54px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+/* ── Annual savings badge ───────────────────────────────────────────── */
+
+.savings-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: rgba(31, 122, 77, 0.1);
+  border: 1px solid rgba(31, 122, 77, 0.18);
+  color: var(--success);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.savings-badge[hidden] {
+  display: none;
+}
+
+/* ── Price card CTA ─────────────────────────────────────────────────── */
+
+.price-card-cta {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price-card-cta .button {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── ROI Calculator ─────────────────────────────────────────────────── */
+
+.roi-calc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.roi-inputs {
+  display: grid;
+  gap: 18px;
+}
+
+.roi-field {
+  display: grid;
+  gap: 6px;
+}
+
+.roi-field label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.roi-field input[type="range"] {
+  width: 100%;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+
+.roi-field .range-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: -0.04em;
+}
+
+.roi-result {
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.06), rgba(15, 118, 110, 0.02));
+  border: 1px solid rgba(15, 118, 110, 0.14);
+}
+
+.roi-result .roi-number {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  color: var(--brand);
+  line-height: 1;
+  margin: 10px 0 6px;
+}
+
+.roi-result .roi-label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.roi-breakdown {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.roi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.roi-row:last-child {
+  border-bottom: 0;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.roi-row span:last-child {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+@media (max-width: 840px) {
+  .roi-calc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Lead magnet section ────────────────────────────────────────────── */
+
+.lead-magnet-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.07), rgba(249, 115, 22, 0.02));
+  border: 1px solid rgba(249, 115, 22, 0.14);
+}
+
+.lead-magnet-band h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: -0.04em;
+}
+
+.lead-magnet-band p {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.lead-magnet-form {
+  display: grid;
+  gap: 12px;
+}
+
+.lead-magnet-form input[type="email"] {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 253, 248, 0.9);
+  font-size: 0.95rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 180ms ease;
+}
+
+.lead-magnet-form input[type="email"]:focus {
+  border-color: var(--brand);
+}
+
+.lead-magnet-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.lead-magnet-note {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  .lead-magnet-band {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .lead-magnet-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Featured agent badge ───────────────────────────────────────────── */
+
+.badge-featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold), #9a6f12);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Social proof ticker ────────────────────────────────────────────── */
+
+.social-proof-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 253, 248, 0.8);
+  border: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.social-proof-bar .proof-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.social-proof-bar .proof-item strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.proof-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+  flex-shrink: 0;
+}
