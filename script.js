@@ -77,6 +77,10 @@ const renderHeader = () => {
         </button>
         <nav class="site-nav" aria-label="Primary">
           ${navLinks}
+          <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Toggle dark mode" data-theme-toggle-mobile>
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span class="toggle-label">${isDark ? "Light mode" : "Dark mode"}</span>
+          </button>
         </nav>
         <div class="header-actions">
           <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
@@ -90,18 +94,27 @@ const renderHeader = () => {
     </header>
   `;
 
-  // Attach theme toggle listener
-  const toggleBtn = root.querySelector("[data-theme-toggle]");
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
+  // Shared toggle logic
+  const applyToggle = (btn, shortLabel) => {
+    btn.addEventListener("click", () => {
       const html = document.documentElement;
       const next = html.dataset.theme === "dark" ? "light" : "dark";
       html.dataset.theme = next;
       localStorage.setItem("gs-theme", next);
-      const label = toggleBtn.querySelector(".toggle-label");
-      if (label) label.textContent = next === "dark" ? "Light" : "Dark";
+      // Update all toggle labels
+      root.querySelectorAll(".toggle-label").forEach((el) => {
+        el.textContent = next === "dark" ? (shortLabel ? "Light mode" : "Light") : (shortLabel ? "Dark mode" : "Dark");
+      });
     });
-  }
+  };
+
+  // Desktop toggle
+  const toggleBtn = root.querySelector("[data-theme-toggle]");
+  if (toggleBtn) applyToggle(toggleBtn, false);
+
+  // Mobile toggle (inside nav)
+  const mobileToggleBtn = root.querySelector("[data-theme-toggle-mobile]");
+  if (mobileToggleBtn) applyToggle(mobileToggleBtn, true);
 };
 
 const renderFooter = () => {
