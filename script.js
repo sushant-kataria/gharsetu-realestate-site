@@ -1,3 +1,13 @@
+/* ── Theme init (runs immediately to avoid flash) ───────────────────── */
+(function () {
+  try {
+    const saved = localStorage.getItem("gs-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = saved || (prefersDark ? "dark" : "light");
+    document.documentElement.dataset.theme = theme;
+  } catch (_) {}
+})();
+
 const siteConfig = {
   primaryNav: [
     { href: "index.html", label: "Home", page: "home" },
@@ -51,6 +61,8 @@ const renderHeader = () => {
     )
     .join("");
 
+  const isDark = document.documentElement.dataset.theme === "dark";
+
   root.innerHTML = `
     <header class="site-header">
       <div class="header-inner">
@@ -67,12 +79,29 @@ const renderHeader = () => {
           ${navLinks}
         </nav>
         <div class="header-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span class="toggle-label">${isDark ? "Light" : "Dark"}</span>
+          </button>
           <a class="button button-secondary" href="contact.html">Talk to sales</a>
           <a class="button button-primary" href="pricing.html">Start free trial</a>
         </div>
       </div>
     </header>
   `;
+
+  // Attach theme toggle listener
+  const toggleBtn = root.querySelector("[data-theme-toggle]");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const html = document.documentElement;
+      const next = html.dataset.theme === "dark" ? "light" : "dark";
+      html.dataset.theme = next;
+      localStorage.setItem("gs-theme", next);
+      const label = toggleBtn.querySelector(".toggle-label");
+      if (label) label.textContent = next === "dark" ? "Light" : "Dark";
+    });
+  }
 };
 
 const renderFooter = () => {
@@ -873,6 +902,7 @@ setupCounters();
 setupROICalculator();
 setupLeadMagnet();
 setupModernAnimations();
+setupTypewriter();
 
 const footerYear = document.getElementById("footer-year");
 if (footerYear) {
@@ -882,113 +912,142 @@ if (footerYear) {
 /* ── Modern animation enhancements ─────────────────────────────────── */
 
 function setupModernAnimations() {
-  // ── Magnetic hover effect for primary/accent buttons ──────────────
-  const magneticButtons = document.querySelectorAll(".button-primary, .button-accent");
-  magneticButtons.forEach((btn) => {
-    btn.addEventListener("mousemove", (e) => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      const strength = 0.22;
-      btn.style.transform = `translateY(-2px) translate(${x * strength}px, ${y * strength}px)`;
-    });
-    btn.addEventListener("mouseleave", () => {
-      btn.style.transform = "";
-    });
-  });
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ── Subtle card tilt on hover (desktop only) ──────────────────────
-  if (window.innerWidth > 920 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const tiltCards = document.querySelectorAll(".card:not(.no-tilt), .quote-card, .price-card");
-    tiltCards.forEach((card) => {
+  // ── Magnetic hover on primary buttons ────────────────────────────
+  if (!reduced) {
+    document.querySelectorAll(".button-primary, .button-accent").forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
+        btn.style.transform = `translateY(-2px) translate(${x}px,${y}px)`;
+      });
+      btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
+    });
+  }
+
+  // ── Subtle 3D tilt on cards (desktop only, not inverted cards) ───
+  if (window.innerWidth > 920 && !reduced) {
+    document.querySelectorAll(".card:not(.card-inverted):not(.card-hover-invert), .quote-card, .price-card").forEach((card) => {
+      card.style.transformStyle = "preserve-3d";
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        const tiltX = (-y * 5).toFixed(2);
-        const tiltY = (x * 5).toFixed(2);
-        card.style.transform = `translateY(-3px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-        card.style.transition = "transform 100ms ease";
+        card.style.transform = `translateY(-3px) rotateX(${(-y * 4).toFixed(1)}deg) rotateY(${(x * 4).toFixed(1)}deg)`;
+        card.style.transition = "transform 80ms linear";
       });
       card.addEventListener("mouseleave", () => {
         card.style.transform = "";
-        card.style.transition = "transform 400ms ease, box-shadow 400ms ease, border-color 400ms ease";
+        card.style.transition = "transform 400ms cubic-bezier(0.16,1,0.3,1), box-shadow 400ms ease, border-color 400ms ease";
       });
     });
   }
 
-  // ── Parallax on hero background image section ─────────────────────
+  // ── Hero parallax ────────────────────────────────────────────────
   const heroBg = document.querySelector(".hero-bg");
-  if (heroBg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    let ticking = false;
+  if (heroBg && !reduced) {
+    let tick = false;
     window.addEventListener("scroll", () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const speed = 0.28;
-          heroBg.style.backgroundPositionY = `calc(40% + ${scrollY * speed}px)`;
-          ticking = false;
+      if (!tick) {
+        requestAnimationFrame(() => {
+          heroBg.style.backgroundPositionY = `calc(40% + ${window.scrollY * 0.25}px)`;
+          tick = false;
         });
-        ticking = true;
+        tick = true;
       }
     }, { passive: true });
   }
 
-  // ── Smooth number counter for stats-strip (re-trigger on reveal) ──
-  const statsStrip = document.querySelector(".stats-strip");
-  if (statsStrip) {
-    const counters = statsStrip.querySelectorAll(".counting[data-count-to]");
-    const animateCounters = () => {
-      counters.forEach((el) => {
-        if (el.dataset.counted) return;
+  // ── Stats strip counter (own observer, re-runs on reveal) ────────
+  const strip = document.querySelector(".stats-strip");
+  if (strip) {
+    const animate = () => {
+      strip.querySelectorAll(".counting[data-count-to]:not([data-counted])").forEach((el) => {
+        el.dataset.counted = "1";
         const target = parseInt(el.dataset.countTo, 10);
         const suffix = el.dataset.countSuffix || "";
-        const duration = 1600;
-        const startTime = performance.now();
+        const dur = 1500;
+        const t0 = performance.now();
         const tick = (now) => {
-          const elapsed = now - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 4);
-          const current = Math.floor(eased * target);
-          const fmt = target >= 1000
-            ? current.toLocaleString("en-IN")
-            : String(current);
-          el.textContent = fmt + suffix;
-          if (progress < 1) requestAnimationFrame(tick);
+          const p = Math.min((now - t0) / dur, 1);
+          const v = Math.floor((1 - Math.pow(1 - p, 4)) * target);
+          el.textContent = (target >= 1000 ? v.toLocaleString("en-IN") : v) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
-        el.dataset.counted = "true";
       });
     };
-    const stripObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          animateCounters();
-          stripObserver.disconnect();
-        }
-      },
-      { threshold: 0.4 }
-    );
-    stripObserver.observe(statsStrip);
+    new IntersectionObserver((es) => { if (es[0].isIntersecting) animate(); }, { threshold: 0.3 }).observe(strip);
   }
 
-  // ── City tile hover glow ──────────────────────────────────────────
-  const cityTiles = document.querySelectorAll(".city-tile");
-  cityTiles.forEach((tile) => {
-    tile.addEventListener("mouseenter", () => {
-      tile.style.boxShadow = "0 16px 40px rgba(0,0,0,0.22)";
-      tile.style.transform = "translateY(-4px) scale(1.01)";
-      tile.style.transition = "transform 300ms cubic-bezier(0.16,1,0.3,1), box-shadow 300ms ease";
+  // ── City tile hover lift ──────────────────────────────────────────
+  document.querySelectorAll(".city-tile").forEach((t) => {
+    t.addEventListener("mouseenter", () => {
+      t.style.cssText += ";transform:translateY(-5px) scale(1.01);box-shadow:0 20px 50px rgba(0,0,0,0.25);transition:transform 300ms cubic-bezier(0.16,1,0.3,1),box-shadow 300ms ease;";
     });
-    tile.addEventListener("mouseleave", () => {
-      tile.style.boxShadow = "";
-      tile.style.transform = "";
-    });
+    t.addEventListener("mouseleave", () => { t.style.transform = ""; t.style.boxShadow = ""; });
   });
+}
 
-  // ── Add entrance animations to cards with CSS class ───────────────
-  document.querySelectorAll(".photo-card .card-photo").forEach((img) => {
-    img.style.transition = "transform 500ms cubic-bezier(0.16,1,0.3,1)";
-  });
+/* ── Typewriter effect on hero headline ─────────────────────────────── */
+
+function setupTypewriter() {
+  const el = document.getElementById("hero-headline");
+  if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const lines = ["Verified inventory.", "Better matches.", "Faster closures."];
+  const speed = 52;   // ms per char
+  const pause = 600;  // ms after full word
+  let cursor = document.createElement("span");
+  cursor.className = "typewriter-cursor";
+  el.textContent = "";
+  el.appendChild(cursor);
+
+  let lineIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let fullText = "";
+
+  const type = () => {
+    const current = lines[lineIndex];
+
+    if (!isDeleting) {
+      fullText = current.slice(0, charIndex + 1);
+      charIndex++;
+    } else {
+      fullText = current.slice(0, charIndex - 1);
+      charIndex--;
+    }
+
+    // Rebuild
+    el.textContent = "";
+    lines.forEach((line, i) => {
+      const span = document.createElement("span");
+      if (i < lineIndex) {
+        span.textContent = line;
+      } else if (i === lineIndex) {
+        span.textContent = fullText;
+      }
+      el.appendChild(span);
+      if (i <= lineIndex) el.appendChild(document.createElement("br"));
+    });
+    el.appendChild(cursor);
+
+    if (!isDeleting && charIndex === current.length) {
+      // Finished this line — move to next if not last
+      if (lineIndex < lines.length - 1) {
+        lineIndex++;
+        charIndex = 0;
+        setTimeout(type, pause);
+      }
+      // Last line — stop (leave cursor blinking)
+      return;
+    }
+
+    setTimeout(type, isDeleting ? speed * 0.5 : speed);
+  };
+
+  setTimeout(type, 400);
 }
