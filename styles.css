@@ -412,15 +412,18 @@ main {
   padding: 36px;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.92);
+  background: #ffffff;
   box-shadow: var(--shadow-xl);
-  backdrop-filter: blur(24px);
+  color: #000000;
 }
 
 [data-theme="dark"] .hero-copy,
 [data-theme="dark"] .page-hero-copy {
-  background: rgba(0, 0, 0, 0.88);
-  border-color: rgba(255, 255, 255, 0.12);
+  background: #0c0c0c !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #ffffff;
 }
 
 .hero-copy p,
@@ -2302,6 +2305,7 @@ main {
 .hero-bg {
   position: relative;
   overflow: hidden;
+  background-color: #0a0a0a; /* solid fallback if image fails */
   background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80');
   background-size: cover;
   background-position: center 40%;
