@@ -872,8 +872,123 @@ setupBuyerBrief();
 setupCounters();
 setupROICalculator();
 setupLeadMagnet();
+setupModernAnimations();
 
 const footerYear = document.getElementById("footer-year");
 if (footerYear) {
   footerYear.textContent = String(new Date().getFullYear());
+}
+
+/* ── Modern animation enhancements ─────────────────────────────────── */
+
+function setupModernAnimations() {
+  // ── Magnetic hover effect for primary/accent buttons ──────────────
+  const magneticButtons = document.querySelectorAll(".button-primary, .button-accent");
+  magneticButtons.forEach((btn) => {
+    btn.addEventListener("mousemove", (e) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const strength = 0.22;
+      btn.style.transform = `translateY(-2px) translate(${x * strength}px, ${y * strength}px)`;
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+    });
+  });
+
+  // ── Subtle card tilt on hover (desktop only) ──────────────────────
+  if (window.innerWidth > 920 && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const tiltCards = document.querySelectorAll(".card:not(.no-tilt), .quote-card, .price-card");
+    tiltCards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        const tiltX = (-y * 5).toFixed(2);
+        const tiltY = (x * 5).toFixed(2);
+        card.style.transform = `translateY(-3px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        card.style.transition = "transform 100ms ease";
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+        card.style.transition = "transform 400ms ease, box-shadow 400ms ease, border-color 400ms ease";
+      });
+    });
+  }
+
+  // ── Parallax on hero background image section ─────────────────────
+  const heroBg = document.querySelector(".hero-bg");
+  if (heroBg && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const speed = 0.28;
+          heroBg.style.backgroundPositionY = `calc(40% + ${scrollY * speed}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ── Smooth number counter for stats-strip (re-trigger on reveal) ──
+  const statsStrip = document.querySelector(".stats-strip");
+  if (statsStrip) {
+    const counters = statsStrip.querySelectorAll(".counting[data-count-to]");
+    const animateCounters = () => {
+      counters.forEach((el) => {
+        if (el.dataset.counted) return;
+        const target = parseInt(el.dataset.countTo, 10);
+        const suffix = el.dataset.countSuffix || "";
+        const duration = 1600;
+        const startTime = performance.now();
+        const tick = (now) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          const current = Math.floor(eased * target);
+          const fmt = target >= 1000
+            ? current.toLocaleString("en-IN")
+            : String(current);
+          el.textContent = fmt + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        el.dataset.counted = "true";
+      });
+    };
+    const stripObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          animateCounters();
+          stripObserver.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    stripObserver.observe(statsStrip);
+  }
+
+  // ── City tile hover glow ──────────────────────────────────────────
+  const cityTiles = document.querySelectorAll(".city-tile");
+  cityTiles.forEach((tile) => {
+    tile.addEventListener("mouseenter", () => {
+      tile.style.boxShadow = "0 16px 40px rgba(0,0,0,0.22)";
+      tile.style.transform = "translateY(-4px) scale(1.01)";
+      tile.style.transition = "transform 300ms cubic-bezier(0.16,1,0.3,1), box-shadow 300ms ease";
+    });
+    tile.addEventListener("mouseleave", () => {
+      tile.style.boxShadow = "";
+      tile.style.transform = "";
+    });
+  });
+
+  // ── Add entrance animations to cards with CSS class ───────────────
+  document.querySelectorAll(".photo-card .card-photo").forEach((img) => {
+    img.style.transition = "transform 500ms cubic-bezier(0.16,1,0.3,1)";
+  });
 }

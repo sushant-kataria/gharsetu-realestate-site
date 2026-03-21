@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -20,32 +20,40 @@
     <div data-site-header></div>
 
     <main>
-      <section class="home-hero">
+      <!-- ── Hero ──────────────────────────────────────────────────────── -->
+      <section class="home-hero hero-bg">
         <div class="container hero-grid">
-          <div class="hero-copy" data-reveal>
-            <p class="eyebrow">India-first proptech website</p>
-            <h1 class="page-title">Verified inventory, better matches, and faster closures for Indian real estate teams.</h1>
+          <div class="hero-copy" data-reveal style="animation-duration:800ms;">
+            <p class="eyebrow-dot">India-first proptech platform</p>
+            <h1 class="page-title">Verified inventory, better matches, <span class="gradient-text">faster closures.</span></h1>
             <p class="page-copy" style="margin-top: 18px;">
-              GharSetu is a cleaner multi-page website for the Indian market. It covers
-              the same essential jobs a modern proptech brand needs, with a simpler visual system,
-              clearer page structure, and calmer motion.
+              GharSetu connects verified agents, builders, and developers with serious buyers
+              across India's top residential markets — in one clean, curated platform.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="find-agent.html">Find an agent</a>
+              <a class="button button-primary button-glow" href="find-agent.html">Find an agent</a>
               <a class="button button-secondary" href="contact.html">Book a walkthrough</a>
             </div>
-            <div class="hero-kpis">
-              <span class="pill">Delhi-NCR</span>
-              <span class="pill">Gurugram</span>
-              <span class="pill">Noida</span>
-              <span class="pill">Mumbai</span>
-              <span class="pill">Bengaluru</span>
+            <div class="hero-kpis stagger">
+              <span class="pill" data-reveal data-reveal-delay="200">Delhi-NCR</span>
+              <span class="pill" data-reveal data-reveal-delay="260">Gurugram</span>
+              <span class="pill" data-reveal data-reveal-delay="320">Noida</span>
+              <span class="pill" data-reveal data-reveal-delay="380">Mumbai</span>
+              <span class="pill" data-reveal data-reveal-delay="440">Bengaluru</span>
             </div>
           </div>
 
-          <aside class="hero-panel" data-reveal data-reveal-delay="100">
-            <img class="hero-illustration" src="assets/home-city.svg" alt="Illustration of a modern Indian city property dashboard." />
-            <div class="status-pill">Live page system</div>
+          <aside class="hero-panel hero-panel-float" data-reveal data-reveal-delay="150">
+            <div class="img-zoom" style="border-radius:var(--radius-md);overflow:hidden;">
+              <img
+                class="hero-illustration"
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=720&q=80"
+                alt="Modern luxury apartment interior"
+                loading="eager"
+                style="height:220px;width:100%;object-fit:cover;border-radius:var(--radius-md);border:none;"
+              />
+            </div>
+            <div class="status-pill live-dot">Live listings platform</div>
             <div class="hero-panel-grid">
               <div class="metric">
                 <strong class="counting" data-count-to="11000" data-count-suffix="+">0</strong>
@@ -53,113 +61,246 @@
               </div>
               <div class="metric">
                 <strong class="counting" data-count-to="180" data-count-suffix="+">0</strong>
-                <span>developer and builder projects ready to showcase</span>
+                <span>developer &amp; builder projects curated</span>
               </div>
               <div class="metric">
                 <strong class="counting" data-count-to="2400" data-count-suffix="+">0</strong>
-                <span>deal conversations moved faster through curated matching</span>
+                <span>deal conversations closed faster</span>
               </div>
               <div class="metric">
-                <strong class="counting" data-count-to="7" data-count-suffix=" pages">0</strong>
-                <span>core public flows mapped from discovery to trust and contact</span>
+                <strong class="counting" data-count-to="5" data-count-suffix=" cities">0</strong>
+                <span>major metros actively covered</span>
               </div>
             </div>
-            <div class="card surface-accent">
-              <h3>Why this version feels sharper</h3>
+            <div class="card surface-accent card-accent-left">
+              <h3>Why GharSetu feels different</h3>
               <p class="card-copy">
-                The new UI is simpler, more balanced for Indian audiences, lighter on text blocks,
-                and split into clearer page types for agents, builders, developers, listings,
-                maps, content, and legal information.
+                No cluttered portals. No noisy WhatsApp chains. Just verified inventory,
+                curated matches, and clearer deal flows for the Indian market.
               </p>
             </div>
           </aside>
         </div>
       </section>
 
+      <!-- ── Trust marquee ──────────────────────────────────────────────── -->
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          <span class="marquee-item"><span class="marquee-dot"></span>11,000+ Verified Agents</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>180+ Developer Projects</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Delhi-NCR Coverage</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Mumbai &amp; Bengaluru</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Curated Inventory</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Faster Deal Closures</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Channel-Partner Programs</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Builder Floors Specialist</span>
+          <!-- duplicate for seamless loop -->
+          <span class="marquee-item"><span class="marquee-dot"></span>11,000+ Verified Agents</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>180+ Developer Projects</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Delhi-NCR Coverage</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Mumbai &amp; Bengaluru</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Curated Inventory</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Faster Deal Closures</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Channel-Partner Programs</span>
+          <span class="marquee-item"><span class="marquee-dot"></span>Builder Floors Specialist</span>
+        </div>
+      </div>
+
+      <!-- ── Core audience pages ────────────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head" data-reveal>
             <div>
               <p class="eyebrow">Core audience pages</p>
-              <h2 class="section-title-large">The same public-site story, separated into cleaner journeys.</h2>
+              <h2 class="section-title-large">Built for every player in the Indian property market.</h2>
+              <span class="section-accent-line"></span>
             </div>
             <p class="section-copy">
-              The site is split across agents, builders, developers, listing discovery, premium
-              club, FAQs, pricing, and trust pages. Each route is structured to be easier to scan
-              and easier to extend later.
+              Whether you're an agent building credibility, a builder showcasing floors, or a developer
+              launching a project — GharSetu has a structured, clean journey for you.
             </p>
           </div>
 
-          <div class="grid-3">
-            <article class="card surface-highlight" data-reveal>
-              <img class="content-illustration listing-thumb" src="assets/agent-network.svg" alt="Illustration of an agent discovery and matching workflow." />
+          <div class="grid-3 stagger">
+            <article class="card photo-card surface-highlight" data-reveal>
+              <img
+                class="card-photo"
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80"
+                alt="Real estate agent with client"
+                loading="lazy"
+              />
               <span class="status-pill">For Agents</span>
               <h3>Sell with verified stock and faster buyer-seller matches.</h3>
               <p class="card-copy">Inventory discovery, curated listing pages, client sharing, and channel-partner credibility.</p>
-              <a class="button button-ghost" href="agent.html">Explore agent page</a>
+              <a class="button button-ghost animated-underline" href="agent.html">Explore agent page →</a>
             </article>
-            <article class="card" data-reveal data-reveal-delay="80">
-              <img class="content-illustration listing-thumb" src="assets/builder-floor.svg" alt="Illustration of builder-floor inventory in a low-rise market." />
+            <article class="card photo-card" data-reveal data-reveal-delay="80">
+              <img
+                class="card-photo"
+                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80"
+                alt="Modern apartment building exterior"
+                loading="lazy"
+              />
               <span class="status-pill">For Builders</span>
               <h3>Showcase builder floors and convert more site visits.</h3>
               <p class="card-copy">Inventory presentation, lead quality control, and focused access to floor specialists.</p>
-              <a class="button button-ghost" href="builder.html">Explore builder page</a>
+              <a class="button button-ghost animated-underline" href="builder.html">Explore builder page →</a>
             </article>
-            <article class="card" data-reveal data-reveal-delay="160">
-              <img class="content-illustration listing-thumb" src="assets/developer-launch.svg" alt="Illustration of a project launch dashboard for developers." />
+            <article class="card photo-card" data-reveal data-reveal-delay="160">
+              <img
+                class="card-photo"
+                src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=80"
+                alt="City skyline at dusk"
+                loading="lazy"
+              />
               <span class="status-pill">For Developers</span>
               <h3>Launch projects with a better channel-partner narrative.</h3>
               <p class="card-copy">Project decks, launch visibility, brokerage programs, and information hubs for agents.</p>
-              <a class="button button-ghost" href="developer.html">Explore developer page</a>
+              <a class="button button-ghost animated-underline" href="developer.html">Explore developer page →</a>
             </article>
           </div>
         </div>
       </section>
 
+      <!-- ── Stats strip ─────────────────────────────────────────────────── -->
+      <section class="section" style="padding-bottom:40px;">
+        <div class="container" data-reveal>
+          <div class="stats-strip">
+            <div class="stats-strip-item">
+              <span class="stats-strip-number counting" data-count-to="11000" data-count-suffix="+">0</span>
+              <span class="stats-strip-label">Verified agents across top markets</span>
+            </div>
+            <div class="stats-strip-item">
+              <span class="stats-strip-number counting" data-count-to="180" data-count-suffix="+">0</span>
+              <span class="stats-strip-label">Developer &amp; builder projects</span>
+            </div>
+            <div class="stats-strip-item">
+              <span class="stats-strip-number counting" data-count-to="2400" data-count-suffix="+">0</span>
+              <span class="stats-strip-label">Deal conversations accelerated</span>
+            </div>
+            <div class="stats-strip-item">
+              <span class="stats-strip-number counting" data-count-to="5" data-count-suffix=" cities">0</span>
+              <span class="stats-strip-label">Major metros actively covered</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── City showcase ──────────────────────────────────────────────── -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <p class="eyebrow">Markets we cover</p>
+              <h2 class="section-title-large">India's most active property markets.</h2>
+              <span class="section-accent-line"></span>
+            </div>
+            <a class="button button-secondary" href="maps.html">View all markets</a>
+          </div>
+
+          <div class="city-photo-grid stagger">
+            <a href="gurgaon/index.html" class="city-tile" data-reveal>
+              <img
+                src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=500&q=80"
+                alt="Gurugram city skyline"
+                loading="lazy"
+              />
+              <div class="city-tile-overlay">
+                <span class="city-tile-name">Gurugram</span>
+                <span class="city-tile-sub">DLF, M3M, Emaar &amp; more</span>
+              </div>
+            </a>
+            <a href="maps.html" class="city-tile" data-reveal data-reveal-delay="80">
+              <img
+                src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=500&q=80"
+                alt="Delhi city view"
+                loading="lazy"
+              />
+              <div class="city-tile-overlay">
+                <span class="city-tile-name">Delhi NCR</span>
+                <span class="city-tile-sub">South Delhi, Noida, Dwarka</span>
+              </div>
+            </a>
+            <a href="maps.html" class="city-tile" data-reveal data-reveal-delay="160">
+              <img
+                src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=500&q=80"
+                alt="Mumbai aerial view"
+                loading="lazy"
+              />
+              <div class="city-tile-overlay">
+                <span class="city-tile-name">Mumbai</span>
+                <span class="city-tile-sub">Thane, Powai, Navi Mumbai</span>
+              </div>
+            </a>
+            <a href="maps.html" class="city-tile" data-reveal data-reveal-delay="240">
+              <img
+                src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=500&q=80"
+                alt="Bengaluru city view"
+                loading="lazy"
+              />
+              <div class="city-tile-overlay">
+                <span class="city-tile-name">Bengaluru</span>
+                <span class="city-tile-sub">Whitefield, Sarjapur, CBD</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Why + discover ─────────────────────────────────────────────── -->
       <section class="section">
         <div class="container split-layout">
           <div class="card surface-warm" data-reveal>
             <p class="eyebrow">Why this matters</p>
             <h2 class="section-title-large">What Indian brokers still struggle with.</h2>
             <ul class="check-list" style="margin-top: 16px;">
-              <li>Listings are fragmented across WhatsApp groups, portals, and offline broker circles.</li>
-              <li>Builder floors and resale opportunities get buried under noisy classified inventory.</li>
-              <li>Project launch decks, availability, and brokerage updates are rarely in one clean workflow.</li>
-              <li>Buyers still depend on trust in the agent, not just on a listing card.</li>
+              <li>Listings fragmented across WhatsApp groups, portals, and offline circles.</li>
+              <li>Builder floors and resale buried under noisy classified inventory.</li>
+              <li>Project decks, availability, and brokerage updates rarely in one clean workflow.</li>
+              <li>Buyers depend on trust in the agent, not just a listing card.</li>
             </ul>
+            <div style="margin-top:24px;">
+              <a class="button button-primary" href="about.html">Our approach</a>
+            </div>
           </div>
 
-          <div class="grid-2">
+          <div class="grid-2 stagger">
             <article class="card" data-reveal data-reveal-delay="60">
+              <div class="icon-badge">🏠</div>
               <h3>Find Agent</h3>
               <p class="card-copy">A searchable, location-led agent directory for Gurugram, South Delhi, Noida, Thane, and Bengaluru.</p>
-              <a class="button button-ghost" href="find-agent.html">Open page</a>
+              <a class="button button-ghost animated-underline" href="find-agent.html">Open page →</a>
             </article>
             <article class="card" data-reveal data-reveal-delay="120">
+              <div class="icon-badge">🏗️</div>
               <h3>Builder Floors</h3>
               <p class="card-copy">A separate discovery flow for one of the strongest demand pockets in Delhi-NCR.</p>
-              <a class="button button-ghost" href="gurgaon/builder-floors/index.html">Open page</a>
+              <a class="button button-ghost animated-underline" href="gurgaon/builder-floors/index.html">Open page →</a>
             </article>
             <article class="card" data-reveal data-reveal-delay="180">
+              <div class="icon-badge">🏙️</div>
               <h3>Categories</h3>
-              <p class="card-copy">Apartments, villas, retail, office, plots, and holiday homes presented as structured entry points.</p>
-              <a class="button button-ghost" href="categories.html">Open page</a>
+              <p class="card-copy">Apartments, villas, retail, office, plots, and holiday homes as structured entry points.</p>
+              <a class="button button-ghost animated-underline" href="categories.html">Open page →</a>
             </article>
             <article class="card" data-reveal data-reveal-delay="240">
-              <h3>Maps & Insights</h3>
-              <p class="card-copy">Locality intelligence, sector pages, and market content to support both discovery and trust.</p>
-              <a class="button button-ghost" href="maps.html">Open page</a>
+              <div class="icon-badge">🗺️</div>
+              <h3>Maps &amp; Insights</h3>
+              <p class="card-copy">Locality intelligence, sector pages, and market content to support discovery and trust.</p>
+              <a class="button button-ghost animated-underline" href="maps.html">Open page →</a>
             </article>
           </div>
         </div>
       </section>
 
+      <!-- ── Pricing ─────────────────────────────────────────────────────── -->
       <section class="section" data-pricing>
         <div class="container">
           <div class="section-head" data-reveal>
             <div>
               <p class="eyebrow">Pricing preview</p>
-              <h2 class="section-title-large">Rupee pricing, clearer plan framing.</h2>
+              <h2 class="section-title-large">Transparent rupee pricing. No surprises.</h2>
+              <span class="section-accent-line"></span>
             </div>
             <div class="pricing-switch">
               <button type="button" class="is-active" data-plan-toggle="monthly">Monthly</button>
@@ -167,7 +308,7 @@
             </div>
           </div>
 
-          <div class="price-grid">
+          <div class="price-grid stagger">
             <article class="price-card" data-price-card data-reveal>
               <span class="status-pill">Starter</span>
               <strong>
@@ -188,14 +329,15 @@
               </div>
             </article>
             <article class="price-card featured" data-price-card data-reveal data-reveal-delay="90">
-              <span class="status-pill">Growth</span>
+              <span class="shimmer-badge">Most Popular</span>
+              <span class="status-pill" style="margin-top:8px;">Growth</span>
               <strong>
                 <span data-price-monthly>₹7,499</span>
                 <span data-price-annual hidden>₹74,999</span>
                 <span data-price-suffix>/month</span>
               </strong>
               <span class="savings-badge" data-savings-badge hidden>Save ₹14,989 per year</span>
-              <p class="card-copy">For teams that manage more inventory, more clients, and more channel interactions.</p>
+              <p class="card-copy">For teams managing more inventory, more clients, and more channel interactions.</p>
               <ul>
                 <li>Builder floor and project access</li>
                 <li>Client-share ready decks</li>
@@ -203,7 +345,7 @@
                 <li>Map and insights toolkit</li>
               </ul>
               <div class="price-card-cta">
-                <a class="button button-primary" href="pricing.html">Start free trial</a>
+                <a class="button button-primary button-glow" href="pricing.html">Start free trial</a>
               </div>
             </article>
             <article class="price-card" data-price-card data-reveal data-reveal-delay="180">
@@ -213,7 +355,7 @@
                 <span data-price-annual hidden>Custom</span>
                 <span data-price-suffix></span>
               </strong>
-              <p class="card-copy">For builders, developers, and channel-led launches that need brand control.</p>
+              <p class="card-copy">For builders, developers, and channel-led launches needing brand control.</p>
               <ul>
                 <li>Launch pages and project visibility</li>
                 <li>Brokerage program setup</li>
@@ -228,11 +370,12 @@
         </div>
       </section>
 
+      <!-- ── Lead magnet ────────────────────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="lead-magnet-band" data-reveal>
             <div>
-              <p class="eyebrow">Free resource</p>
+              <p class="eyebrow-dot">Free resource</p>
               <h2>Get the Delhi-NCR Property Market Report 2025 — free.</h2>
               <p>Locality-by-locality price trends, buyer demand data, and agent insights. Delivered to your inbox instantly.</p>
             </div>
@@ -255,40 +398,42 @@
         </div>
       </section>
 
+      <!-- ── Testimonials + CTA ──────────────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head" data-reveal>
             <div>
-              <p class="eyebrow">Proof & trust</p>
-              <h2 class="section-title-large">Trust blocks work better when the pacing is cleaner.</h2>
+              <p class="eyebrow">Proof &amp; trust</p>
+              <h2 class="section-title-large">What India's real estate professionals say.</h2>
+              <span class="section-accent-line"></span>
             </div>
             <p class="section-copy">
-              Testimonials, founder visibility, and proof points still matter. They just need more
-              breathing room and a calmer layout to feel credible.
+              Trust, locality context, and response speed — the three things that matter in Indian
+              real estate. GharSetu is built around exactly that.
             </p>
           </div>
 
-          <div class="quote-grid">
+          <div class="quote-grid stagger">
             <article class="quote-card" data-reveal>
-              <h3>“The platform should make my day lighter, not noisier.”</h3>
+              <h3>"The platform should make my day lighter, not noisier."</h3>
               <p class="card-copy">Principal partner, Gurugram residential specialist</p>
             </article>
             <article class="quote-card" data-reveal data-reveal-delay="80">
-              <h3>“What matters in India is trust, locality context, and response speed.”</h3>
+              <h3>"What matters in India is trust, locality context, and response speed."</h3>
               <p class="card-copy">Channel partner, Noida and Greater Noida</p>
             </article>
             <article class="quote-card" data-reveal data-reveal-delay="160">
-              <h3>“Builder floors need their own flow. Portals usually bury them.”</h3>
+              <h3>"Builder floors need their own flow. Portals usually bury them."</h3>
               <p class="card-copy">Independent builder, South Delhi</p>
             </article>
           </div>
 
-          <div class="cta-band" style="margin-top: 22px;" data-reveal>
+          <div class="cta-band" style="margin-top: 28px;" data-reveal>
             <div>
-              <h3 class="section-title">Ready to review the full page system?</h3>
+              <h3 class="section-title">Ready to explore the full platform?</h3>
               <p class="card-copy">
-                Continue through the audience pages, listing pages, insight pages, and legal pages.
-                Everything is now structured as a proper multi-page website.
+                From listings to insights, agent pages to project launches — everything is structured,
+                curated, and ready to browse.
               </p>
             </div>
             <div class="stack-row">
