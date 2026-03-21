@@ -3358,6 +3358,27 @@ img {
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
+/* card-inverted in dark mode = white card, so fix any white-colored child text */
+[data-theme="dark"] .card-inverted .check-list li,
+[data-theme="dark"] .card-inverted ul li {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+[data-theme="dark"] .card-inverted .eyebrow,
+[data-theme="dark"] .card-inverted [style*="rgba(255,255,255"] {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .card-inverted .check-list li::before {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .card-inverted .button[style*="white"] {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #000 !important;
+}
+
 /* ── Thin rule ───────────────────────────────────────────────────────── */
 
 .thin-rule {
@@ -3410,6 +3431,86 @@ img {
 
 .map-feature-card {
   background: var(--surface) !important;
+}
+
+/* ── Dark mode: fix all hardcoded warm-white backgrounds ─────────────── */
+
+[data-theme="dark"] .tag,
+[data-theme="dark"] .status-pill {
+  background: var(--surface-raised) !important;
+  color: var(--ink-soft) !important;
+  border-color: var(--line-strong) !important;
+}
+
+[data-theme="dark"] .comparison-table {
+  background: var(--surface) !important;
+}
+
+[data-theme="dark"] .comparison-table td,
+[data-theme="dark"] .comparison-table th {
+  background: transparent !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .pricing-switch {
+  background: var(--surface-alt) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .filter-panel,
+[data-theme="dark"] .search-panel {
+  background: var(--surface-alt) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .builder-search-bar {
+  background: var(--surface-alt) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .media-item,
+[data-theme="dark"] .step-card {
+  background: var(--surface) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .footer-inner {
+  background: var(--surface) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .lead-magnet-form input[type="email"] {
+  background: var(--surface-alt) !important;
+  color: var(--ink) !important;
+  border-color: var(--line-strong) !important;
+}
+
+[data-theme="dark"] .deal-type-card,
+[data-theme="dark"] .map-download-card,
+[data-theme="dark"] .map-fact {
+  background: var(--surface) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .map-feature-card {
+  background: var(--surface) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .map-download-card img {
+  background: var(--surface-alt) !important;
+  border-color: var(--line) !important;
+}
+
+[data-theme="dark"] .map-fact strong,
+[data-theme="dark"] .deal-type-card h3 {
+  color: var(--ink) !important;
+}
+
+[data-theme="dark"] .map-fact p,
+[data-theme="dark"] .map-feature-card p,
+[data-theme="dark"] .map-download-card p {
+  color: var(--ink-soft) !important;
 }
 
 /* ── Dark mode scroll bar ────────────────────────────────────────────── */
