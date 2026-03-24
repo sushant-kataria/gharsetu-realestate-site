@@ -1,3 +1,13 @@
+/* ── Theme init (runs immediately to avoid flash) ───────────────────── */
+(function () {
+  try {
+    const saved = localStorage.getItem("gs-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = saved || (prefersDark ? "dark" : "light");
+    document.documentElement.dataset.theme = theme;
+  } catch (_) {}
+})();
+
 const siteConfig = {
   primaryNav: [
     { href: "index.html", label: "Home", page: "home" },
@@ -51,6 +61,8 @@ const renderHeader = () => {
     )
     .join("");
 
+  const isDark = document.documentElement.dataset.theme === "dark";
+
   root.innerHTML = `
     <header class="site-header">
       <div class="header-inner">
@@ -65,14 +77,44 @@ const renderHeader = () => {
         </button>
         <nav class="site-nav" aria-label="Primary">
           ${navLinks}
+          <button class="theme-toggle theme-toggle-mobile" type="button" aria-label="Toggle dark mode" data-theme-toggle-mobile>
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span class="toggle-label">${isDark ? "Light mode" : "Dark mode"}</span>
+          </button>
         </nav>
         <div class="header-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span class="toggle-label">${isDark ? "Light" : "Dark"}</span>
+          </button>
           <a class="button button-secondary" href="contact.html">Talk to sales</a>
           <a class="button button-primary" href="pricing.html">Start free trial</a>
         </div>
       </div>
     </header>
   `;
+
+  // Shared toggle logic
+  const applyToggle = (btn, shortLabel) => {
+    btn.addEventListener("click", () => {
+      const html = document.documentElement;
+      const next = html.dataset.theme === "dark" ? "light" : "dark";
+      html.dataset.theme = next;
+      localStorage.setItem("gs-theme", next);
+      // Update all toggle labels
+      root.querySelectorAll(".toggle-label").forEach((el) => {
+        el.textContent = next === "dark" ? (shortLabel ? "Light mode" : "Light") : (shortLabel ? "Dark mode" : "Dark");
+      });
+    });
+  };
+
+  // Desktop toggle
+  const toggleBtn = root.querySelector("[data-theme-toggle]");
+  if (toggleBtn) applyToggle(toggleBtn, false);
+
+  // Mobile toggle (inside nav)
+  const mobileToggleBtn = root.querySelector("[data-theme-toggle-mobile]");
+  if (mobileToggleBtn) applyToggle(mobileToggleBtn, true);
 };
 
 const renderFooter = () => {
@@ -707,20 +749,318 @@ const setupCounters = () => {
   counters.forEach((counter) => observer.observe(counter));
 };
 
+const WHATSAPP_NUMBER = "919971520011";
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hi GharSetu! I'd like to know more about your property matching platform."
+);
+
+const renderAnnouncementBar = () => {
+  const dismissed = window.sessionStorage.getItem("gs-promo-dismissed");
+  if (dismissed) {
+    return;
+  }
+
+  const bar = document.createElement("div");
+  bar.className = "announcement-bar";
+  bar.setAttribute("role", "banner");
+  bar.innerHTML = `
+    <span>🎉 Limited offer: Get <strong>2 months free</strong> when you choose an annual plan.
+      <a href="pricing.html">See pricing →</a>
+    </span>
+    <button class="announcement-dismiss" aria-label="Dismiss announcement" type="button">×</button>
+  `;
+
+  bar.querySelector(".announcement-dismiss").addEventListener("click", () => {
+    bar.remove();
+    window.sessionStorage.setItem("gs-promo-dismissed", "1");
+  });
+
+  document.body.prepend(bar);
+};
+
+const renderWhatsAppFAB = () => {
+  const fab = document.createElement("a");
+  fab.className = "whatsapp-fab";
+  fab.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+  fab.target = "_blank";
+  fab.rel = "noopener noreferrer";
+  fab.setAttribute("aria-label", "Chat with us on WhatsApp");
+  fab.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="fab-label">Chat with us</span>
+  `;
+
+  document.body.appendChild(fab);
+};
+
+const setupSavingsDisplay = () => {
+  document.querySelectorAll("[data-pricing]").forEach((root) => {
+    root.querySelectorAll("[data-plan-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const mode = button.dataset.planToggle;
+        root.querySelectorAll("[data-savings-badge]").forEach((badge) => {
+          badge.hidden = mode !== "annual";
+        });
+      });
+    });
+  });
+};
+
+const setupROICalculator = () => {
+  const calc = document.querySelector("[data-roi-calc]");
+  if (!calc) {
+    return;
+  }
+
+  const formatter = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
+
+  const dealsInput = calc.querySelector("[data-roi-deals]");
+  const avgValueInput = calc.querySelector("[data-roi-avg-value]");
+  const commissionInput = calc.querySelector("[data-roi-commission]");
+  const dealsDisplay = calc.querySelector("[data-roi-deals-display]");
+  const avgValueDisplay = calc.querySelector("[data-roi-avg-value-display]");
+  const commissionDisplay = calc.querySelector("[data-roi-commission-display]");
+  const grossEarnings = calc.querySelector("[data-roi-gross]");
+  const subscriptionCost = calc.querySelector("[data-roi-subscription]");
+  const netEarnings = calc.querySelector("[data-roi-net]");
+
+  const PLAN_COST = 7499;
+
+  const update = () => {
+    const deals = Number(dealsInput?.value || 3);
+    const avgValue = Number(avgValueInput?.value || 80) * 100000;
+    const commission = Number(commissionInput?.value || 2);
+
+    const gross = deals * avgValue * (commission / 100);
+    const net = gross - PLAN_COST;
+
+    if (dealsDisplay) dealsDisplay.textContent = `${deals} deal${deals > 1 ? "s" : ""}/month`;
+    if (avgValueDisplay) avgValueDisplay.textContent = formatter.format(avgValue);
+    if (commissionDisplay) commissionDisplay.textContent = `${commission}%`;
+    if (grossEarnings) grossEarnings.textContent = formatter.format(gross);
+    if (subscriptionCost) subscriptionCost.textContent = formatter.format(PLAN_COST);
+    if (netEarnings) netEarnings.textContent = formatter.format(net);
+  };
+
+  [dealsInput, avgValueInput, commissionInput].forEach((input) => {
+    input?.addEventListener("input", update);
+  });
+
+  update();
+};
+
+const setupLeadMagnet = () => {
+  document.querySelectorAll("[data-lead-magnet]").forEach((form) => {
+    const message = form.querySelector("[data-lead-message]");
+    const button = form.querySelector("button[type='submit']");
+    const action = form.getAttribute("action") || "";
+    const endpoint = action.startsWith("https://formsubmit.co/")
+      ? action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/")
+      : action;
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      formData.set("_url", window.location.href);
+      formData.set("_subject", "Free Market Report Request");
+
+      if (button) {
+        button.textContent = "Sending...";
+        button.disabled = true;
+      }
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formData,
+        });
+
+        if (!response.ok) throw new Error("failed");
+
+        if (message) message.textContent = "Report request received. Check your inbox shortly.";
+        form.reset();
+      } catch {
+        if (message) message.textContent = "Could not send right now. Email y2khouseofrealty@gmail.com";
+      } finally {
+        if (button) {
+          button.textContent = "Get free report";
+          button.disabled = false;
+        }
+        if (message) {
+          window.setTimeout(() => { message.textContent = ""; }, 4000);
+        }
+      }
+    });
+  });
+};
+
+renderAnnouncementBar();
 renderHeader();
 renderFooter();
+renderWhatsAppFAB();
 setupNavigation();
 setupHeroMeta();
 setupReveal();
 setupPricing();
+setupSavingsDisplay();
 setupForms();
 setupFilters();
 setupSavedItems();
 setupCompare();
 setupBuyerBrief();
 setupCounters();
+setupROICalculator();
+setupLeadMagnet();
+setupModernAnimations();
+setupTypewriter();
 
 const footerYear = document.getElementById("footer-year");
 if (footerYear) {
   footerYear.textContent = String(new Date().getFullYear());
+}
+
+/* ── Modern animation enhancements ─────────────────────────────────── */
+
+function setupModernAnimations() {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ── Magnetic hover on primary buttons ────────────────────────────
+  if (!reduced) {
+    document.querySelectorAll(".button-primary, .button-accent").forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
+        btn.style.transform = `translateY(-2px) translate(${x}px,${y}px)`;
+      });
+      btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
+    });
+  }
+
+  // ── Subtle 3D tilt on cards (desktop only, not inverted cards) ───
+  if (window.innerWidth > 920 && !reduced) {
+    document.querySelectorAll(".card:not(.card-inverted):not(.card-hover-invert), .quote-card, .price-card").forEach((card) => {
+      card.style.transformStyle = "preserve-3d";
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `translateY(-3px) rotateX(${(-y * 4).toFixed(1)}deg) rotateY(${(x * 4).toFixed(1)}deg)`;
+        card.style.transition = "transform 80ms linear";
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+        card.style.transition = "transform 400ms cubic-bezier(0.16,1,0.3,1), box-shadow 400ms ease, border-color 400ms ease";
+      });
+    });
+  }
+
+  // ── Hero parallax ────────────────────────────────────────────────
+  const heroBg = document.querySelector(".hero-bg");
+  if (heroBg && !reduced) {
+    let tick = false;
+    window.addEventListener("scroll", () => {
+      if (!tick) {
+        requestAnimationFrame(() => {
+          heroBg.style.backgroundPositionY = `calc(40% + ${window.scrollY * 0.25}px)`;
+          tick = false;
+        });
+        tick = true;
+      }
+    }, { passive: true });
+  }
+
+  // ── Stats strip counter (own observer, re-runs on reveal) ────────
+  const strip = document.querySelector(".stats-strip");
+  if (strip) {
+    const animate = () => {
+      strip.querySelectorAll(".counting[data-count-to]:not([data-counted])").forEach((el) => {
+        el.dataset.counted = "1";
+        const target = parseInt(el.dataset.countTo, 10);
+        const suffix = el.dataset.countSuffix || "";
+        const dur = 1500;
+        const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - t0) / dur, 1);
+          const v = Math.floor((1 - Math.pow(1 - p, 4)) * target);
+          el.textContent = (target >= 1000 ? v.toLocaleString("en-IN") : v) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    };
+    new IntersectionObserver((es) => { if (es[0].isIntersecting) animate(); }, { threshold: 0.3 }).observe(strip);
+  }
+
+  // ── City tile hover lift ──────────────────────────────────────────
+  document.querySelectorAll(".city-tile").forEach((t) => {
+    t.addEventListener("mouseenter", () => {
+      t.style.cssText += ";transform:translateY(-5px) scale(1.01);box-shadow:0 20px 50px rgba(0,0,0,0.25);transition:transform 300ms cubic-bezier(0.16,1,0.3,1),box-shadow 300ms ease;";
+    });
+    t.addEventListener("mouseleave", () => { t.style.transform = ""; t.style.boxShadow = ""; });
+  });
+}
+
+/* ── Typewriter effect on hero headline ─────────────────────────────── */
+
+function setupTypewriter() {
+  const el = document.getElementById("hero-headline");
+  if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const lines = ["Verified inventory.", "Better matches.", "Faster closures."];
+  const speed = 52;   // ms per char
+  const pause = 600;  // ms after full word
+  let cursor = document.createElement("span");
+  cursor.className = "typewriter-cursor";
+  el.textContent = "";
+  el.appendChild(cursor);
+
+  let lineIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let fullText = "";
+
+  const type = () => {
+    const current = lines[lineIndex];
+
+    if (!isDeleting) {
+      fullText = current.slice(0, charIndex + 1);
+      charIndex++;
+    } else {
+      fullText = current.slice(0, charIndex - 1);
+      charIndex--;
+    }
+
+    // Rebuild
+    el.textContent = "";
+    lines.forEach((line, i) => {
+      const span = document.createElement("span");
+      if (i < lineIndex) {
+        span.textContent = line;
+      } else if (i === lineIndex) {
+        span.textContent = fullText;
+      }
+      el.appendChild(span);
+      if (i <= lineIndex) el.appendChild(document.createElement("br"));
+    });
+    el.appendChild(cursor);
+
+    if (!isDeleting && charIndex === current.length) {
+      // Finished this line — move to next if not last
+      if (lineIndex < lines.length - 1) {
+        lineIndex++;
+        charIndex = 0;
+        setTimeout(type, pause);
+      }
+      // Last line — stop (leave cursor blinking)
+      return;
+    }
+
+    setTimeout(type, isDeleting ? speed * 0.5 : speed);
+  };
+
+  setTimeout(type, 400);
 }

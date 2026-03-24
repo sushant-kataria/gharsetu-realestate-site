@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
   <body data-page="pricing">
     <div data-site-header></div>
     <main data-pricing>
-      <section class="page-hero">
+      <section class="page-hero hero-bg" style="background-image:url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1600&q=80');">
         <div class="container page-hero-grid">
           <div class="page-hero-copy" data-reveal>
             <div class="breadcrumbs breadcrumbs-stack">
@@ -30,7 +30,7 @@
             </p>
           </div>
           <aside class="hero-panel" data-reveal data-reveal-delay="100">
-            <img class="hero-illustration" src="assets/site-visit.svg" alt="Illustration of a premium residential site visit and project facade." />
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=700&q=80" alt="Premium residential property." style="border-radius:var(--radius-lg);width:100%;height:180px;object-fit:cover;margin-bottom:12px;" />
             <div class="pricing-switch">
               <button type="button" class="is-active" data-plan-toggle="monthly">Monthly</button>
               <button type="button" data-plan-toggle="annual">Annual</button>
@@ -50,7 +50,7 @@
       <section class="section">
         <div class="container price-grid">
           <article class="price-card" data-price-card data-reveal>
-            <img class="content-illustration listing-thumb" src="assets/broker-meeting.svg" alt="Illustration of a broker consultation session." />
+            <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=600&q=80" alt="Illustration of a broker consultation session." />
             <span class="status-pill">Solo Agent</span>
             <h3>Starter</h3>
             <strong>
@@ -58,6 +58,7 @@
               <span data-price-annual hidden>₹29,999</span>
               <span data-price-suffix>/month</span>
             </strong>
+            <span class="savings-badge" data-savings-badge hidden>Save ₹5,989 per year</span>
             <p class="card-copy">For individual brokers who want verified inventory, better matching, and cleaner client sharing.</p>
             <ul>
               <li>Inventory dashboard</li>
@@ -65,9 +66,12 @@
               <li>5 active sell listings/month</li>
               <li>Basic help desk</li>
             </ul>
+            <div class="price-card-cta">
+              <a class="button button-primary" href="contact.html?plan=starter">Start free trial</a>
+            </div>
           </article>
           <article class="price-card featured" data-price-card data-reveal data-reveal-delay="90">
-            <img class="content-illustration listing-thumb" src="assets/home-city.svg" alt="Illustration of a city property dashboard for broker teams." />
+            <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Illustration of a city property dashboard for broker teams." />
             <span class="status-pill">Broker Team</span>
             <h3>Growth</h3>
             <strong>
@@ -75,6 +79,7 @@
               <span data-price-annual hidden>₹74,999</span>
               <span data-price-suffix>/month</span>
             </strong>
+            <span class="savings-badge" data-savings-badge hidden>Save ₹14,989 per year</span>
             <p class="card-copy">For active teams working across launch inventory, resale, and builder floors.</p>
             <ul>
               <li>Unlimited internal users</li>
@@ -82,9 +87,13 @@
               <li>Builder floor category access</li>
               <li>Map and insight toolkit</li>
             </ul>
+            <div class="price-card-cta">
+              <a class="button button-primary" href="contact.html?plan=growth">Start free trial</a>
+              <a class="button button-secondary" href="contact.html">Book a walkthrough</a>
+            </div>
           </article>
           <article class="price-card" data-price-card data-reveal data-reveal-delay="180">
-            <img class="content-illustration listing-thumb" src="assets/developer-launch.svg" alt="Illustration of a developer project launch and inventory system." />
+            <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Illustration of a developer project launch and inventory system." />
             <span class="status-pill">Enterprise</span>
             <h3>Developer & Builder</h3>
             <strong>
@@ -99,6 +108,9 @@
               <li>Custom onboarding</li>
               <li>Dedicated support channel</li>
             </ul>
+            <div class="price-card-cta">
+              <a class="button button-accent" href="contact.html?plan=enterprise">Talk to sales</a>
+            </div>
           </article>
         </div>
       </section>

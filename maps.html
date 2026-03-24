@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maps | GharSetu</title>
+    <title>Cities & Projects | GharSetu</title>
     <meta
       name="description"
-      content="Explore downloadable locality maps, property categories, and city-level market pockets across Indian real estate hubs."
+      content="Explore verified projects, localities, and market intelligence across India's top residential markets — Gurugram, Delhi-NCR, Noida, Mumbai, and Bengaluru."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,84 +16,94 @@
   <body data-page="maps">
     <div data-site-header></div>
     <main>
-      <section class="page-hero">
+
+      <!-- ── Page hero ──────────────────────────────────────────────────── -->
+      <section class="page-hero hero-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=80');">
         <div class="container page-hero-grid">
           <div class="page-hero-copy" data-reveal>
-            <div class="breadcrumbs breadcrumbs-stack"><div class="breadcrumbs-main"><a href="index.html">Home</a><span>/</span><a href="maps.html">Maps</a></div><div class="breadcrumbs-sub">Map library</div></div>
-            <h1 class="page-title">Downloadable locality maps for buyers, brokers, and channel-partner teams.</h1>
+            <div class="breadcrumbs breadcrumbs-stack">
+              <div class="breadcrumbs-main"><a href="index.html">Home</a><span>/</span><a href="maps.html">Cities</a></div>
+              <div class="breadcrumbs-sub">City & project explorer</div>
+            </div>
+            <h1 class="page-title">Verified projects across India's top residential markets.</h1>
             <p class="page-copy" style="margin-top: 18px;">
-              This route now works like a proper map hub: fresh property categories, residential and
-              commercial deal buckets, and downloadable city-pocket maps that can be shared with clients.
+              Browse curated inventory by city — Gurugram, Delhi-NCR, Noida, Mumbai, and Bengaluru.
+              Each city surfaces verified agents, key localities, and primary projects in one place.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#map-library">Browse map library</a>
-              <a class="button button-secondary" href="contact.html">Request custom city maps</a>
+              <a class="button button-primary" href="#city-explorer">Explore cities</a>
+              <a class="button button-secondary" href="contact.html">Talk to an advisor</a>
             </div>
             <div class="hero-kpis">
-              <span class="pill">Gurugram sectors</span>
-              <span class="pill">Noida expressway</span>
-              <span class="pill">Bengaluru East</span>
-              <span class="pill">Download-ready SVGs</span>
+              <span class="pill">Gurugram</span>
+              <span class="pill">Delhi-NCR</span>
+              <span class="pill">Noida</span>
+              <span class="pill">Mumbai</span>
+              <span class="pill">Bengaluru</span>
             </div>
           </div>
           <aside class="hero-panel surface-highlight" data-reveal data-reveal-delay="100">
-            <img class="hero-illustration" src="assets/map-sector57-gurugram.svg" alt="Preview of a downloadable Gurugram locality map." />
+            <img
+              class="hero-illustration"
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80"
+              alt="Modern residential project in India."
+              style="border-radius:var(--radius-lg);width:100%;object-fit:cover;max-height:220px;"
+            />
             <div class="hero-panel-grid">
               <div class="metric">
-                <strong class="counting" data-count-to="4" data-count-suffix="">0</strong>
-                <span>downloadable map sheets available on the page</span>
+                <strong class="counting" data-count-to="5" data-count-suffix="">0</strong>
+                <span>major Indian cities covered with verified inventory</span>
               </div>
               <div class="metric">
-                <strong class="counting" data-count-to="10" data-count-suffix="+">0</strong>
-                <span>property and deal categories mapped for faster discovery</span>
+                <strong class="counting" data-count-to="180" data-count-suffix="+">0</strong>
+                <span>primary and resale projects listed across markets</span>
               </div>
               <div class="metric">
-                <strong>Client-share ready</strong>
-                <span>Made for quick WhatsApp sharing, buyer calls, and micro-market explainers</span>
+                <strong>Verified agents</strong>
+                <span>Every city backed by a network of screened, active brokers</span>
               </div>
               <div class="metric">
-                <strong>India-first</strong>
-                <span>Focused on the city pockets that drive real agent and buyer conversations</span>
+                <strong>Updated regularly</strong>
+                <span>Inventory, pricing, and project status refreshed each cycle</span>
               </div>
             </div>
           </aside>
         </div>
       </section>
 
+      <!-- ── Property categories ────────────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head" data-reveal>
             <div>
-              <p class="eyebrow">Fresh and updated properties</p>
-              <h2 class="section-title-large">Curated inventory types, separated into cleaner business buckets.</h2>
+              <p class="eyebrow">Inventory types</p>
+              <h2 class="section-title-large">Every deal type, properly separated.</h2>
             </div>
             <p class="section-copy">
-              Instead of forcing every lead into one mixed feed, the maps route can direct users to the
-              exact inventory stream they need first.
+              Browse by product type — primary projects, resale, builder floors, or premium club inventory.
             </p>
           </div>
-
           <div class="map-feature-grid">
             <article class="map-feature-card" data-reveal>
-              <img class="map-icon" src="assets/icon-primary-projects.svg" alt="Icon representing primary projects." />
+              <img class="map-icon" src="assets/icon-primary-projects.svg" alt="Primary projects icon." />
               <h3 style="margin-top: 18px;">Primary Projects</h3>
-              <p style="margin-top: 10px;">New launches and live primary inventory from top developers, grouped by micro-market.</p>
-              <a class="button button-ghost" href="developer.html">Explore primary projects</a>
+              <p style="margin-top: 10px;">New launches and live inventory from top developers, grouped by micro-market.</p>
+              <a class="button button-ghost" href="developer-store.html">Explore primary projects</a>
             </article>
             <article class="map-feature-card" data-reveal data-reveal-delay="70">
-              <img class="map-icon" src="assets/icon-resale.svg" alt="Icon representing resale inventory." />
+              <img class="map-icon" src="assets/icon-resale.svg" alt="Resale icon." />
               <h3 style="margin-top: 18px;">Resale</h3>
-              <p style="margin-top: 10px;">Fresh resale opportunities for end-users and investors who want ready or near-ready stock.</p>
+              <p style="margin-top: 10px;">Fresh resale for end-users and investors who want ready or near-ready stock.</p>
               <a class="button button-ghost" href="homes.html">Explore resale flow</a>
             </article>
             <article class="map-feature-card" data-reveal data-reveal-delay="140">
-              <img class="map-icon" src="assets/icon-builder-floors.svg" alt="Icon representing builder floors." />
+              <img class="map-icon" src="assets/icon-builder-floors.svg" alt="Builder floors icon." />
               <h3 style="margin-top: 18px;">Builder Floors</h3>
-              <p style="margin-top: 10px;">Dedicated low-rise and independent floor inventory for the markets where it really matters.</p>
+              <p style="margin-top: 10px;">Dedicated low-rise and independent floor inventory for the markets where it matters most.</p>
               <a class="button button-ghost" href="gurgaon/builder-floors/index.html">Explore builder floors</a>
             </article>
             <article class="map-feature-card" data-reveal data-reveal-delay="210">
-              <img class="map-icon" src="assets/icon-platinum-club.svg" alt="Icon representing premium partner inventory." />
+              <img class="map-icon" src="assets/icon-platinum-club.svg" alt="Platinum club icon." />
               <h3 style="margin-top: 18px;">Platinum Club</h3>
               <p style="margin-top: 10px;">Premium deal access, higher-conviction listings, and partner-first opportunities for top brokers.</p>
               <a class="button button-ghost" href="platinum-club.html">Explore premium club</a>
@@ -102,178 +112,307 @@
         </div>
       </section>
 
+      <!-- ── Deal type buckets ───────────────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head" data-reveal>
             <div>
-              <p class="eyebrow">Residential and commercial deals</p>
-              <h2 class="section-title-large"><span class="accent-text">Residential &amp; Commercial</span> deals for every property brief.</h2>
+              <p class="eyebrow">Residential & commercial deals</p>
+              <h2 class="section-title-large">Deal buckets for every property brief.</h2>
             </div>
-            <p class="section-copy">
-              These deal buckets help users jump directly into the product type they are actually discussing.
-            </p>
+            <p class="section-copy">Jump directly into the product type your client is actually discussing.</p>
           </div>
-
           <div class="deal-type-grid">
             <article class="deal-type-card" data-reveal>
-              <img class="map-icon" src="assets/icon-villas.svg" alt="Icon representing villa deals." />
+              <img class="map-icon" src="assets/icon-villas.svg" alt="Villas" />
               <h3>Villas</h3>
             </article>
             <article class="deal-type-card" data-reveal data-reveal-delay="50">
-              <img class="map-icon" src="assets/icon-plots.svg" alt="Icon representing plotted developments." />
+              <img class="map-icon" src="assets/icon-plots.svg" alt="Plots" />
               <h3>Plots</h3>
             </article>
             <article class="deal-type-card" data-reveal data-reveal-delay="100">
-              <img class="map-icon" src="assets/icon-apartments.svg" alt="Icon representing apartment deals." />
+              <img class="map-icon" src="assets/icon-apartments.svg" alt="Apartments" />
               <h3>Apartments</h3>
             </article>
             <article class="deal-type-card" data-reveal data-reveal-delay="150">
-              <img class="map-icon" src="assets/icon-builder-floors.svg" alt="Icon representing builder-floor deals." />
+              <img class="map-icon" src="assets/icon-builder-floors.svg" alt="Builder Floors" />
               <h3>Builder Floors</h3>
             </article>
             <article class="deal-type-card" data-reveal data-reveal-delay="200">
-              <img class="map-icon" src="assets/icon-retail-shops.svg" alt="Icon representing retail-shop deals." />
+              <img class="map-icon" src="assets/icon-retail-shops.svg" alt="Retail Shops" />
               <h3>Retail Shops</h3>
             </article>
             <article class="deal-type-card" data-reveal data-reveal-delay="250">
-              <img class="map-icon" src="assets/icon-offices.svg" alt="Icon representing office deals." />
+              <img class="map-icon" src="assets/icon-offices.svg" alt="Offices" />
               <h3>Offices</h3>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="map-library">
+      <!-- ── City explorer ──────────────────────────────────────────────── -->
+      <section class="section" id="city-explorer">
         <div class="container">
           <div class="section-head" data-reveal>
             <div>
-              <p class="eyebrow">Downloadable map sheets</p>
-              <h2 class="section-title-large">City pockets ready for quick client sharing.</h2>
+              <p class="eyebrow">City-by-city inventory</p>
+              <h2 class="section-title-large">Browse by city and locality.</h2>
             </div>
-            <p class="section-copy">
-              Each sheet is a local SVG asset, so users can preview it on the website or download it directly for sales conversations.
-            </p>
+            <p class="section-copy">Each city has its own micro-markets, deal types, and active agent networks.</p>
           </div>
 
-          <div class="map-download-grid">
-            <article class="map-download-card" data-reveal>
-              <img src="assets/map-sector57-gurugram.svg" alt="Sector 57 Gurugram locality map preview." />
-              <div class="map-download-meta">
-                <span class="status-pill">Gurugram map sheet</span>
-                <h3>Sector 57, Gurugram</h3>
-                <p>Builder floors, family-use catchment, school belt, and Golf Course Extension connectivity.</p>
-                <div class="tag-row">
-                  <span class="tag">Low-rise</span>
-                  <span class="tag">Ready stock</span>
-                  <span class="tag">Family buyers</span>
+          <!-- Gurugram -->
+          <div class="city-block" data-reveal style="margin-bottom: 48px;">
+            <div class="city-block-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div>
+                <p class="eyebrow">Haryana</p>
+                <h3 class="section-title" style="margin:0;">Gurugram</h3>
+                <p class="card-copy" style="margin-top:6px;">Golf Course Road · DLF Phases · Sohna Road · Dwarka Expressway · New Gurugram</p>
+              </div>
+              <a class="button button-secondary" href="gurgaon/index.html">View all Gurugram</a>
+            </div>
+            <div class="grid-3">
+              <article class="card" data-reveal style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="DLF project Gurugram" style="width:100%;height:100%;object-fit:cover;" />
                 </div>
-              </div>
-              <div class="download-actions">
-                <a class="button button-primary" href="map-detail.html">View locality page</a>
-                <a class="button button-secondary" href="assets/map-sector57-gurugram.svg" download>Download SVG map</a>
-              </div>
-            </article>
-
-            <article class="map-download-card" data-reveal data-reveal-delay="80">
-              <img src="assets/map-dlf-phase2-gurugram.svg" alt="DLF Phase 2 Gurugram locality map preview." />
-              <div class="map-download-meta">
-                <span class="status-pill">Gurugram map sheet</span>
-                <h3>DLF Phase 2, Gurugram</h3>
-                <p>Metro and Cyber City access, resale density, and premium floor opportunities in mature DLF blocks.</p>
-                <div class="tag-row">
-                  <span class="tag">DLF</span>
-                  <span class="tag">Resale</span>
-                  <span class="tag">Premium floors</span>
+                <span class="status-pill" style="margin-bottom:8px;">Golf Course Road</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">DLF The Arbour</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Ultra-luxury high-rise. 4 BHK | ₹10 Cr+. Possession 2026.</p>
+                <a class="button button-ghost animated-underline" href="gurgaon/projects/dlf-the-arbour.html" style="margin-top:10px;font-size:0.82rem;">View project →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="60" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="M3M project Gurugram" style="width:100%;height:100%;object-fit:cover;" />
                 </div>
-              </div>
-              <div class="download-actions">
-                <a class="button button-primary" href="map-dlf-phase-2.html">View locality page</a>
-                <a class="button button-secondary" href="assets/map-dlf-phase2-gurugram.svg" download>Download SVG map</a>
-              </div>
-            </article>
-
-            <article class="map-download-card" data-reveal data-reveal-delay="160">
-              <img src="assets/map-sector150-noida.svg" alt="Sector 150 Noida locality map preview." />
-              <div class="map-download-meta">
-                <span class="status-pill">Noida map sheet</span>
-                <h3>Sector 150, Noida</h3>
-                <p>Primary projects, sports-city identity, and premium inventory linked to the expressway corridor.</p>
-                <div class="tag-row">
-                  <span class="tag">Expressway</span>
-                  <span class="tag">Primary projects</span>
-                  <span class="tag">Upgrade buyers</span>
+                <span class="status-pill" style="margin-bottom:8px;">Golf Course Extension</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">M3M Altitude</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Premium residences with panoramic views. 3-4 BHK | ₹4.5–8 Cr.</p>
+                <a class="button button-ghost animated-underline" href="gurgaon/projects/m3m-altitude.html" style="margin-top:10px;font-size:0.82rem;">View project →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="120" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Builder floors Gurugram" style="width:100%;height:100%;object-fit:cover;" />
                 </div>
-              </div>
-              <div class="download-actions">
-                <a class="button button-primary" href="map-noida-sector-150.html">View locality page</a>
-                <a class="button button-secondary" href="assets/map-sector150-noida.svg" download>Download SVG map</a>
-              </div>
-            </article>
-
-            <article class="map-download-card" data-reveal data-reveal-delay="240">
-              <img src="assets/map-whitefield-east.svg" alt="Whitefield East Bengaluru locality map preview." />
-              <div class="map-download-meta">
-                <span class="status-pill">Bengaluru map sheet</span>
-                <h3>Whitefield East, Bengaluru</h3>
-                <p>Office-led demand, apartment catchment, metro growth, and mixed-use inventory around the IT corridor.</p>
-                <div class="tag-row">
-                  <span class="tag">IT corridor</span>
-                  <span class="tag">Apartments</span>
-                  <span class="tag">Mixed-use</span>
-                </div>
-              </div>
-              <div class="download-actions">
-                <a class="button button-primary" href="map-whitefield-east.html">View locality page</a>
-                <a class="button button-secondary" href="assets/map-whitefield-east.svg" download>Download SVG map</a>
-              </div>
-            </article>
+                <span class="status-pill" style="margin-bottom:8px;">Sohna Road</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Smart World Orchard</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Integrated township. 2-4 BHK | ₹1.2–3.5 Cr. Ready-to-move units available.</p>
+                <a class="button button-ghost animated-underline" href="gurgaon/projects/smart-world-orchard.html" style="margin-top:10px;font-size:0.82rem;">View project →</a>
+              </article>
+            </div>
           </div>
+
+          <!-- Delhi-NCR -->
+          <div class="city-block" data-reveal style="margin-bottom: 48px;">
+            <div class="city-block-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div>
+                <p class="eyebrow">National Capital Region</p>
+                <h3 class="section-title" style="margin:0;">Delhi-NCR</h3>
+                <p class="card-copy" style="margin-top:6px;">South Delhi · West Delhi · Dwarka · Rohini · Greater Noida West</p>
+              </div>
+              <a class="button button-secondary" href="find-agent.html">Find NCR agents</a>
+            </div>
+            <div class="grid-3">
+              <article class="card" data-reveal style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=600&q=80" alt="South Delhi property" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">South Delhi</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Builder Floors</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Independent floors across Defence Colony, GK, Safdarjung Enclave. ₹2–6 Cr.</p>
+                <a class="button button-ghost animated-underline" href="gurgaon/builder-floors/index.html" style="margin-top:10px;font-size:0.82rem;">Browse floors →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="60" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1622866306950-81d17097d458?auto=format&fit=crop&w=600&q=80" alt="Dwarka Delhi" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Dwarka</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Dwarka Sector 18–21</h4>
+                <p class="card-copy" style="font-size:0.88rem;">DDA and group housing. Resale flats, good metro access. ₹80L–2 Cr.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore resale →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="120" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1648476854559-3678afa72e7f?auto=format&fit=crop&w=600&q=80" alt="Rohini Delhi" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Rohini</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Rohini Sectors 13–20</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Established residential pockets with strong rental demand. ₹60L–1.8 Cr.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+            </div>
+          </div>
+
+          <!-- Noida -->
+          <div class="city-block" data-reveal style="margin-bottom: 48px;">
+            <div class="city-block-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div>
+                <p class="eyebrow">Uttar Pradesh</p>
+                <h3 class="section-title" style="margin:0;">Noida</h3>
+                <p class="card-copy" style="margin-top:6px;">Sector 150 · Sector 137 · Sector 75 · Greater Noida West · Yamuna Expressway</p>
+              </div>
+              <a class="button button-secondary" href="find-agent.html">Find Noida agents</a>
+            </div>
+            <div class="grid-3">
+              <article class="card" data-reveal style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1603796846097-bee99e4a601f?auto=format&fit=crop&w=600&q=80" alt="Noida Sector 150" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Sector 150</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Sports City Projects</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Premium expressway corridor. ATS, Godrej, Tata. 3-4 BHK | ₹1.2–4 Cr.</p>
+                <a class="button button-ghost animated-underline" href="map-noida-sector-150.html" style="margin-top:10px;font-size:0.82rem;">View locality →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="60" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?auto=format&fit=crop&w=600&q=80" alt="Greater Noida West" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Greater Noida West</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Tech Zone IV</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Emerging IT hub. Affordable 2-3 BHK with metro proximity. ₹45L–1.2 Cr.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="120" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=600&q=80" alt="Yamuna Expressway" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Yamuna Expressway</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Integrated Townships</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Jaypee, Gaur, ATS. Plotted and apartment options. ₹30L–2 Cr.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+            </div>
+          </div>
+
+          <!-- Mumbai -->
+          <div class="city-block" data-reveal style="margin-bottom: 48px;">
+            <div class="city-block-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div>
+                <p class="eyebrow">Maharashtra</p>
+                <h3 class="section-title" style="margin:0;">Mumbai</h3>
+                <p class="card-copy" style="margin-top:6px;">Bandra · Powai · Thane · Navi Mumbai · Andheri · Lower Parel</p>
+              </div>
+              <a class="button button-secondary" href="find-agent.html">Find Mumbai agents</a>
+            </div>
+            <div class="grid-3">
+              <article class="card" data-reveal style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=600&q=80" alt="Mumbai Bandra" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Bandra West</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Premium Residences</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Sea-facing and hill-view options. 2-4 BHK | ₹3–15 Cr. Strong rental market.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="60" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=600&q=80" alt="Thane Mumbai" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Thane</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Integrated Townships</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Hiranandani, Lodha, Rustomjee. 1-3 BHK | ₹70L–3 Cr. Good growth corridor.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="120" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1529290130-4ca3753253ae?auto=format&fit=crop&w=600&q=80" alt="Navi Mumbai" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Navi Mumbai</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Kharghar & Panvel</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Airport proximity, CIDCO projects. 2-3 BHK | ₹50L–2 Cr.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+            </div>
+          </div>
+
+          <!-- Bengaluru -->
+          <div class="city-block" data-reveal style="margin-bottom: 48px;">
+            <div class="city-block-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div>
+                <p class="eyebrow">Karnataka</p>
+                <h3 class="section-title" style="margin:0;">Bengaluru</h3>
+                <p class="card-copy" style="margin-top:6px;">Whitefield · Sarjapur · Hebbal · Electronic City · Indiranagar · Koramangala</p>
+              </div>
+              <a class="button button-secondary" href="find-agent.html">Find Bengaluru agents</a>
+            </div>
+            <div class="grid-3">
+              <article class="card" data-reveal style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=600&q=80" alt="Whitefield Bengaluru" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Whitefield</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">IT Corridor Projects</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Prestige, Brigade, Godrej. 2-4 BHK | ₹90L–3.5 Cr. Metro-connected.</p>
+                <a class="button button-ghost animated-underline" href="map-whitefield-east.html" style="margin-top:10px;font-size:0.82rem;">View locality →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="60" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1583396618422-b6c47d4b0986?auto=format&fit=crop&w=600&q=80" alt="Sarjapur Bengaluru" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Sarjapur Road</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">Growth Corridor</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Tech park access, strong rental demand. 2-3 BHK | ₹70L–2.5 Cr.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+              <article class="card" data-reveal data-reveal-delay="120" style="padding:20px;">
+                <div style="height:120px;overflow:hidden;border-radius:var(--radius-md);margin-bottom:14px;">
+                  <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" alt="Hebbal Bengaluru" style="width:100%;height:100%;object-fit:cover;" />
+                </div>
+                <span class="status-pill" style="margin-bottom:8px;">Hebbal</span>
+                <h4 style="margin:8px 0 6px;letter-spacing:-0.03em;">North Bengaluru Premium</h4>
+                <p class="card-copy" style="font-size:0.88rem;">Airport corridor, lake-facing options. 3-4 BHK | ₹1.2–5 Cr.</p>
+                <a class="button button-ghost animated-underline" href="homes.html" style="margin-top:10px;font-size:0.82rem;">Explore →</a>
+              </article>
+            </div>
+          </div>
+
         </div>
       </section>
 
+      <!-- ── What we cover ───────────────────────────────────────────────── -->
       <section class="section" style="padding-top: 18px;">
         <div class="container">
           <div class="section-head" data-reveal>
             <div>
-              <p class="eyebrow">What these maps capture</p>
-              <h2 class="section-title-large">The details buyers usually ask for on the first serious call.</h2>
+              <p class="eyebrow">What each city page covers</p>
+              <h2 class="section-title-large">The details that make the first call sharper.</h2>
             </div>
           </div>
-
           <div class="map-fact-grid">
             <article class="map-fact" data-reveal>
-              <strong>Sector boundaries</strong>
-              <p>Micro-market edges and internal pockets that change price perception and buyer comfort.</p>
+              <strong>Micro-market pockets</strong>
+              <p>Sector and locality breakdowns so you know exactly where a project sits relative to demand zones.</p>
             </article>
             <article class="map-fact" data-reveal data-reveal-delay="70">
               <strong>Inventory zones</strong>
-              <p>Primary projects, resale clusters, builder floors, and premium inventory marked separately.</p>
+              <p>Primary launches, resale clusters, builder floors, and premium inventory separated clearly.</p>
             </article>
             <article class="map-fact" data-reveal data-reveal-delay="140">
               <strong>Daily anchors</strong>
-              <p>School belts, retail nodes, market streets, and office spines that shape everyday demand.</p>
+              <p>School belts, retail nodes, metro stations, and office spines that shape buyer decisions.</p>
             </article>
             <article class="map-fact" data-reveal data-reveal-delay="210">
-              <strong>Share-ready format</strong>
-              <p>Static SVG files that stay sharp in-browser and are easy to download for broker sharing.</p>
+              <strong>Verified agents</strong>
+              <p>Each city backed by screened, active brokers ready to take buyer and seller briefs.</p>
             </article>
           </div>
-
           <div class="cta-band" style="margin-top: 22px;" data-reveal>
             <div>
-              <h3 class="section-title">Need more city maps added?</h3>
+              <h3 class="section-title">Need a city or project added?</h3>
               <p class="card-copy">
-                This library can be extended city by city with more locality sheets, builder-floor zones,
-                primary-project clusters, and commercial pockets.
+                GharSetu is expanding city by city. Request a specific locality, project, or agent network
+                and we'll prioritize adding it.
               </p>
             </div>
             <div class="stack-row">
-              <a class="button button-primary" href="contact.html">Request more maps</a>
+              <a class="button button-primary" href="contact.html">Request a city</a>
               <a class="button button-secondary" href="categories.html">Browse categories</a>
             </div>
           </div>
         </div>
       </section>
+
     </main>
     <div data-site-footer></div>
     <script src="script.js"></script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,14 +16,33 @@
   <body data-page="find-agent">
     <div data-site-header></div>
     <main data-filter-root>
-      <section class="page-hero">
-        <div class="container page-hero-copy" data-reveal>
-          <div class="breadcrumbs breadcrumbs-stack"><div class="breadcrumbs-main"><a href="index.html">Home</a><span>/</span><a href="find-agent.html">Find Agent</a></div><div class="breadcrumbs-sub">Agent discovery</div></div>
-          <h1 class="page-title">Find agents by city, micro-market, and property specialisation.</h1>
-          <p class="page-copy" style="margin-top: 18px;">
-            This page presents a cleaner, searchable agent directory for the Indian market.
-          </p>
-          <img class="content-illustration listing-thumb" src="assets/agent-network.svg" alt="Illustration of verified agent discovery across Indian cities." style="margin-top: 24px;" />
+      <section class="page-hero hero-bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80');">
+        <div class="container page-hero-grid">
+          <div class="page-hero-copy" data-reveal>
+            <div class="breadcrumbs breadcrumbs-stack"><div class="breadcrumbs-main"><a href="index.html">Home</a><span>/</span><a href="find-agent.html">Find Agent</a></div><div class="breadcrumbs-sub">Agent discovery</div></div>
+            <h1 class="page-title">Find agents by city, micro-market, and property specialisation.</h1>
+            <p class="page-copy" style="margin-top: 18px;">
+              Searchable directory of verified brokers across Gurugram, Delhi-NCR, Noida, Mumbai, and Bengaluru.
+            </p>
+            <div class="hero-kpis">
+              <span class="pill">Delhi-NCR</span>
+              <span class="pill">Mumbai</span>
+              <span class="pill">Bengaluru</span>
+              <span class="pill">Luxury</span>
+              <span class="pill">Builder Floors</span>
+            </div>
+          </div>
+          <aside class="hero-panel surface-highlight" data-reveal data-reveal-delay="100">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=700&q=80" alt="Professional agent network." style="border-radius:var(--radius-lg);width:100%;height:200px;object-fit:cover;margin-bottom:12px;" />
+            <div class="metric">
+              <strong class="counting" data-count-to="11000" data-count-suffix="+">0</strong>
+              <span>verified agents across India's top markets</span>
+            </div>
+            <div class="metric">
+              <strong>Screened & active</strong>
+              <span>Every listed agent is reviewed for market activity and locality knowledge.</span>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -53,7 +72,8 @@
 
           <div class="listing-grid" style="margin-top: 20px;" data-filter-results>
             <article class="profile-card" data-filter-item data-order="1" data-city="ncr" data-speciality="luxury" data-experience-value="12" data-rating-value="49" data-search="gurugram golf course road luxury apartments resale" data-reveal>
-              <img class="content-illustration listing-thumb" src="assets/broker-meeting.svg" alt="Illustration of a Gurugram broker consulting a buyer." />
+              <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=600&q=80" alt="Illustration of a Gurugram broker consulting a buyer." />
+              <span class="badge-featured">★ Featured</span>
               <h3>Riya Arora</h3>
               <p class="listing-meta">Gurugram • Luxury apartments • Resale + primary</p>
               <ul class="simple-list">
@@ -66,7 +86,7 @@
               </div>
             </article>
             <article class="profile-card" data-filter-item data-order="2" data-city="ncr" data-speciality="builderfloors" data-experience-value="15" data-rating-value="48" data-search="south delhi builder floors greater kailash defence colony" data-reveal data-reveal-delay="80">
-              <img class="content-illustration listing-thumb" src="assets/builder-floor.svg" alt="Illustration of a South Delhi builder-floor specialist." />
+              <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Illustration of a South Delhi builder-floor specialist." />
               <h3>Dev Khanna</h3>
               <p class="listing-meta">South Delhi • Builder floors • Investor clients</p>
               <ul class="simple-list">
@@ -79,7 +99,7 @@
               </div>
             </article>
             <article class="profile-card" data-filter-item data-order="3" data-city="mumbai" data-speciality="luxury" data-experience-value="10" data-rating-value="47" data-search="thane mulund luxury homes mumbai" data-reveal data-reveal-delay="160">
-              <img class="content-illustration listing-thumb" src="assets/luxury-interior.svg" alt="Illustration of a premium Mumbai residential search." />
+              <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Illustration of a premium Mumbai residential search." />
               <h3>Sana Merchant</h3>
               <p class="listing-meta">Mumbai Region • Thane, Powai, Mulund</p>
               <ul class="simple-list">
@@ -92,7 +112,7 @@
               </div>
             </article>
             <article class="profile-card" data-filter-item data-order="4" data-city="bangalore" data-speciality="villas" data-experience-value="11" data-rating-value="48" data-search="bangalore whitefield sarjapur villas plots" data-reveal data-reveal-delay="240">
-              <img class="content-illustration listing-thumb" src="assets/site-visit.svg" alt="Illustration of a Bengaluru villa site visit." />
+              <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1590725140246-20acddc1ec6d?auto=format&fit=crop&w=600&q=80" alt="Illustration of a Bengaluru villa site visit." />
               <h3>Harshita Nair</h3>
               <p class="listing-meta">Bengaluru • Villas and plotted developments</p>
               <ul class="simple-list">
@@ -105,7 +125,8 @@
               </div>
             </article>
             <article class="profile-card" data-filter-item data-order="5" data-city="ncr" data-speciality="luxury" data-experience-value="13" data-rating-value="50" data-search="noida expressway luxury projects high rise investor clients" data-reveal data-reveal-delay="320">
-              <img class="content-illustration listing-thumb" src="assets/home-city.svg" alt="Illustration of a Noida luxury project specialist." />
+              <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80" alt="Illustration of a Noida luxury project specialist." />
+              <span class="badge-featured">★ Featured</span>
               <h3>Kabir Bhasin</h3>
               <p class="listing-meta">Noida • Luxury projects • Investor + upgrade clients</p>
               <ul class="simple-list">
@@ -118,7 +139,7 @@
               </div>
             </article>
             <article class="profile-card" data-filter-item data-order="6" data-city="ncr" data-speciality="builderfloors" data-experience-value="9" data-rating-value="46" data-search="gurugram builder floors golf course extension low rise premium" data-reveal data-reveal-delay="400">
-              <img class="content-illustration listing-thumb" src="assets/floor-listing-a.svg" alt="Illustration of a Gurgaon builder-floor specialist profile." />
+              <img class="content-illustration listing-thumb" src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=600&q=80" alt="Illustration of a Gurgaon builder-floor specialist profile." />
               <h3>Meher Sethi</h3>
               <p class="listing-meta">Gurugram • Builder floors • Low-rise premium stock</p>
               <ul class="simple-list">
@@ -135,6 +156,22 @@
             <h3>No profiles match this filter set.</h3>
             <p class="card-copy">Try another city or speciality to widen the shortlist.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="cta-band surface-warm" data-reveal>
+            <div>
+              <span class="badge-featured" style="margin-bottom: 12px; display: inline-flex;">★ Featured Placement</span>
+              <h3 class="section-title">Are you a verified agent? Get a Featured spot.</h3>
+              <p class="card-copy">Featured agents appear at the top of search results with a gold badge, boosting enquiry rates by up to 3×. Available to Growth and Partner plan subscribers.</p>
+            </div>
+            <div class="stack-row">
+              <a class="button button-primary" href="pricing.html">Upgrade to Growth</a>
+              <a class="button button-secondary" href="contact.html">Talk to sales</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
