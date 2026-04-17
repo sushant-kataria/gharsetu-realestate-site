@@ -4253,3 +4253,229 @@ textarea:focus {
 }
 
 /* end of iOS Liquid Glass Theme */
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLASS — NEUTRAL ONLY (no colour tints, pure white/black glass)
+═══════════════════════════════════════════════════════════════════ */
+
+/* Pure white / pure black backgrounds */
+body                   { background: #ffffff !important; }
+[data-theme="dark"] body { background: #0a0a0a !important; }
+
+/* Remove coloured orbs — barely-visible neutral depth only */
+body::after {
+  background-image:
+    radial-gradient(ellipse 900px 700px at 12% 18%, rgba(0,0,0,0.030) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 600px at 84% 10%, rgba(0,0,0,0.022) 0%, transparent 55%),
+    radial-gradient(ellipse 800px 650px at 90% 84%, rgba(0,0,0,0.018) 0%, transparent 58%),
+    radial-gradient(ellipse 700px 700px at 6%  88%, rgba(0,0,0,0.025) 0%, transparent 60%);
+  animation: none !important;
+}
+
+[data-theme="dark"] body::after {
+  background-image:
+    radial-gradient(ellipse 900px 700px at 12% 18%, rgba(255,255,255,0.028) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 600px at 84% 10%, rgba(255,255,255,0.018) 0%, transparent 55%),
+    radial-gradient(ellipse 800px 650px at 90% 84%, rgba(255,255,255,0.015) 0%, transparent 58%),
+    radial-gradient(ellipse 700px 700px at 6%  88%, rgba(255,255,255,0.022) 0%, transparent 60%);
+}
+
+/* Neutral glass shadow tokens */
+:root {
+  --glass-shadow:
+    0 8px 32px rgba(0,0,0,0.10),
+    0 2px 8px  rgba(0,0,0,0.06),
+    inset 0 1.5px 0 rgba(255,255,255,0.90);
+  --glass-shadow-hover:
+    0 20px 56px rgba(0,0,0,0.15),
+    0 4px 12px  rgba(0,0,0,0.08),
+    inset 0 1.5px 0 rgba(255,255,255,0.92);
+}
+
+/* Neutral header */
+.site-header {
+  background: rgba(255,255,255,0.74) !important;
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.08),
+    inset 0 -1px 0 rgba(255,255,255,0.60) !important;
+}
+
+[data-theme="dark"] .site-header {
+  background: rgba(10,10,10,0.74) !important;
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.45),
+    inset 0 -1px 0 rgba(255,255,255,0.07) !important;
+}
+
+/* Neutral nav pill */
+.site-nav {
+  box-shadow:
+    0 2px 16px rgba(0,0,0,0.06),
+    inset 0 1.5px 0 rgba(255,255,255,0.95) !important;
+}
+
+[data-theme="dark"] .site-nav {
+  background: rgba(15,15,15,0.64) !important;
+  box-shadow:
+    0 2px 16px rgba(0,0,0,0.45),
+    inset 0 1.5px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Neutral mobile nav dropdown */
+@media (max-width: 640px) {
+  .site-nav.is-open {
+    background: rgba(255,255,255,0.93) !important;
+    box-shadow:
+      0 20px 56px rgba(0,0,0,0.10),
+      inset 0 1.5px 0 rgba(255,255,255,0.96) !important;
+  }
+
+  [data-theme="dark"] .site-nav.is-open {
+    background: rgba(12,12,12,0.93) !important;
+    box-shadow:
+      0 20px 56px rgba(0,0,0,0.60),
+      inset 0 1.5px 0 rgba(255,255,255,0.08) !important;
+  }
+}
+
+/* Neutral hamburger */
+.menu-toggle {
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.08),
+    inset 0 1.5px 0 rgba(255,255,255,0.92) !important;
+}
+
+[data-theme="dark"] .menu-toggle {
+  background: rgba(18,18,18,0.68) !important;
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.45),
+    inset 0 1.5px 0 rgba(255,255,255,0.10) !important;
+}
+
+/* Neutral card hover */
+.card:hover,
+.quote-card:hover,
+.listing-card:hover,
+.article-card:hover,
+.price-card:hover,
+.map-card:hover,
+.profile-card:hover {
+  box-shadow:
+    0 20px 56px rgba(0,0,0,0.14),
+    0 4px 12px  rgba(0,0,0,0.08),
+    inset 0 1.5px 0 rgba(255,255,255,0.92) !important;
+}
+
+/* Neutral surface variants — just glass, no colour */
+.surface-highlight {
+  background: rgba(255,255,255,0.60) !important;
+  border-color: rgba(255,255,255,0.78) !important;
+}
+
+.surface-accent {
+  background: rgba(255,255,255,0.52) !important;
+  border-color: rgba(255,255,255,0.70) !important;
+}
+
+[data-theme="dark"] .surface-highlight {
+  background: rgba(255,255,255,0.07) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+[data-theme="dark"] .surface-accent {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+
+/* Neutral surface-dark */
+.surface-dark {
+  background: rgba(10,10,10,0.70) !important;
+}
+
+[data-theme="dark"] .surface-dark {
+  background: rgba(5,5,5,0.78) !important;
+}
+
+/* Neutral dark nav elements */
+[data-theme="dark"] .hero-bg .hero-copy,
+[data-theme="dark"] .hero-bg .page-hero-copy {
+  background: rgba(10,10,10,0.70) !important;
+}
+
+/* Neutral featured price card */
+.price-card.featured {
+  background: rgba(255,255,255,0.72) !important;
+  border-color: rgba(255,255,255,0.85) !important;
+  box-shadow:
+    0 16px 56px rgba(0,0,0,0.12),
+    inset 0 1.5px 0 rgba(255,255,255,0.95) !important;
+}
+
+[data-theme="dark"] .price-card.featured {
+  background: rgba(255,255,255,0.10) !important;
+  border-color: rgba(255,255,255,0.18) !important;
+  box-shadow:
+    0 16px 56px rgba(0,0,0,0.50),
+    inset 0 1.5px 0 rgba(255,255,255,0.12) !important;
+}
+
+/* Neutral announcement / promo bar */
+.announcement-bar,
+.promo-bar {
+  background: rgba(255,255,255,0.65) !important;
+  border-bottom-color: rgba(255,255,255,0.78) !important;
+}
+
+[data-theme="dark"] .announcement-bar,
+[data-theme="dark"] .promo-bar {
+  background: rgba(255,255,255,0.06) !important;
+  border-bottom-color: rgba(255,255,255,0.10) !important;
+}
+
+/* Neutral shimmer badge dark */
+[data-theme="dark"] .shimmer-badge {
+  background: rgba(255,255,255,0.09) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Neutral theme toggle dark */
+[data-theme="dark"] .theme-toggle {
+  background: rgba(18,18,18,0.60) !important;
+  box-shadow:
+    0 2px 12px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.09) !important;
+}
+
+/* Neutral input focus rings */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(0,0,0,0.28) !important;
+  box-shadow:
+    0 0 0 3px rgba(0,0,0,0.07),
+    inset 0 2px 6px rgba(0,0,0,0.04) !important;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: rgba(255,255,255,0.38) !important;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,0.10),
+    inset 0 2px 6px rgba(0,0,0,0.18) !important;
+}
+
+/* Neutral city tile shadows */
+.city-tile {
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.10),
+    inset 0 1.5px 0 rgba(255,255,255,0.50) !important;
+}
+
+.city-tile:hover {
+  box-shadow:
+    0 20px 56px rgba(0,0,0,0.16),
+    inset 0 1.5px 0 rgba(255,255,255,0.56) !important;
+}
+
+/* end neutral glass */
