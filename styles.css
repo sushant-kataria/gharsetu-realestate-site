@@ -4479,3 +4479,519 @@ textarea:focus {
 }
 
 /* end neutral glass */
+
+/* ═══════════════════════════════════════════════════════════════════
+   iOS AURORA GLASS — from Gharsetu iOS.html design file
+   Light mode only · Aurora gradient · blur(20px) saturate(180%)
+   Source tokens: AURORA, glassCard(), IOSGlassPill in design file
+═══════════════════════════════════════════════════════════════════ */
+
+/* ─── SF Pro / iOS system font ───────────────────────────────────── */
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: -apple-system, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* ─── Aurora background (AURORA token from design file) ─────────── */
+/* linear-gradient(150deg,#ede8ff 0%,#d5e8ff 20%,#fce3f5 48%,#d4f5ec 72%,#fef8e0 100%) */
+body {
+  background:
+    linear-gradient(150deg,
+      #ede8ff 0%,
+      #d5e8ff 20%,
+      #fce3f5 48%,
+      #d4f5ec 72%,
+      #fef8e0 100%
+    ) !important;
+  background-attachment: fixed !important;
+}
+
+/* Force aurora even in "dark mode" — iOS theme is light only */
+[data-theme="dark"] body {
+  background:
+    linear-gradient(150deg,
+      #ede8ff 0%,
+      #d5e8ff 20%,
+      #fce3f5 48%,
+      #d4f5ec 72%,
+      #fef8e0 100%
+    ) !important;
+  background-attachment: fixed !important;
+}
+
+/* Remove the neutral mesh orb layer */
+body::after { display: none !important; }
+
+/* ─── iOS ink colour scale ───────────────────────────────────────── */
+/* ink=#1C1C1E  ink2=#3C3C43  ink3=rgba(60,60,67,.6)  ink4=rgba(60,60,67,.3) */
+:root {
+  --ink:       #1C1C1E;
+  --ink-soft:  rgba(60, 60, 67, 0.60);
+  --ink-muted: rgba(60, 60, 67, 0.30);
+  --line:      rgba(60, 60, 67, 0.12);
+  --line-strong: rgba(60, 60, 67, 0.22);
+}
+
+/* Override dark-mode ink tokens to stay light */
+[data-theme="dark"] {
+  --ink:       #1C1C1E !important;
+  --ink-soft:  rgba(60, 60, 67, 0.60) !important;
+  --ink-muted: rgba(60, 60, 67, 0.30) !important;
+  --line:      rgba(60, 60, 67, 0.12) !important;
+  --line-strong: rgba(60, 60, 67, 0.22) !important;
+}
+
+/* ─── Hide theme toggle — light mode only ────────────────────────── */
+.theme-toggle,
+.theme-toggle-mobile {
+  display: none !important;
+}
+
+/* ─── glassCard() recipe — exact match from design file ─────────── */
+.card,
+.quote-card,
+.listing-card,
+.article-card,
+.price-card,
+.faq-item,
+.office-card,
+.legal-card,
+.contact-card,
+.map-card,
+.profile-card,
+.download-card,
+.metric,
+.hero-panel {
+  background: rgba(255, 255, 255, 0.52) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.78) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.72),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.38),
+    0 4px 24px rgba(80, 50, 140, 0.09),
+    0 1px 2px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 22px !important;
+  color: #1C1C1E !important;
+}
+
+/* Card hover — brighter glass */
+.card:hover,
+.quote-card:hover,
+.listing-card:hover,
+.article-card:hover,
+.price-card:hover,
+.map-card:hover,
+.profile-card:hover {
+  background: rgba(255, 255, 255, 0.68) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.82),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.45),
+    0 12px 40px rgba(80, 50, 140, 0.14),
+    0 2px 4px rgba(0, 0, 0, 0.06) !important;
+  transform: translateY(-5px) scale(1.012) !important;
+  border-color: rgba(255, 255, 255, 0.90) !important;
+}
+
+/* ─── Surface variants ───────────────────────────────────────────── */
+.surface-highlight {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.80),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.45),
+    0 4px 24px rgba(80, 50, 140, 0.08) !important;
+  border-radius: 22px !important;
+  color: #1C1C1E !important;
+}
+
+/* Accent glass — lavender tint from aurora */
+.surface-accent {
+  background: rgba(237, 232, 255, 0.62) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 0.5px solid rgba(200, 185, 255, 0.55) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.72),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.38),
+    0 4px 24px rgba(80, 50, 140, 0.09) !important;
+  border-radius: 22px !important;
+  color: #1C1C1E !important;
+}
+
+/* Dark glass surface */
+.surface-dark {
+  background: rgba(28, 28, 30, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.14),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.22),
+    0 1px 2px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 22px !important;
+  color: #fff !important;
+}
+
+/* Force all dark overrides to use light glass */
+[data-theme="dark"] .card,
+[data-theme="dark"] .quote-card,
+[data-theme="dark"] .listing-card,
+[data-theme="dark"] .article-card,
+[data-theme="dark"] .price-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .office-card,
+[data-theme="dark"] .legal-card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .map-card,
+[data-theme="dark"] .profile-card,
+[data-theme="dark"] .download-card,
+[data-theme="dark"] .metric,
+[data-theme="dark"] .hero-panel,
+[data-theme="dark"] .surface-highlight,
+[data-theme="dark"] .surface-accent {
+  background: rgba(255, 255, 255, 0.52) !important;
+  border-color: rgba(255, 255, 255, 0.78) !important;
+  color: #1C1C1E !important;
+}
+
+/* ─── Hero copy / page hero copy ─────────────────────────────────── */
+.hero-copy,
+.page-hero-copy {
+  background: rgba(255, 255, 255, 0.70) !important;
+  backdrop-filter: blur(22px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.82),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.45),
+    0 8px 32px rgba(80, 50, 140, 0.10),
+    0 1px 2px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 22px !important;
+  color: #1C1C1E !important;
+}
+
+/* Hero copy over Unsplash image */
+.hero-bg .hero-copy,
+.hero-bg .page-hero-copy {
+  background: rgba(255, 255, 255, 0.74) !important;
+}
+
+/* Override previous solid dark mode rule */
+[data-theme="dark"] .hero-copy,
+[data-theme="dark"] .page-hero-copy,
+[data-theme="dark"] .hero-bg .hero-copy,
+[data-theme="dark"] .hero-bg .page-hero-copy {
+  background: rgba(255, 255, 255, 0.70) !important;
+  backdrop-filter: blur(22px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+  border-color: rgba(255, 255, 255, 0.85) !important;
+  color: #1C1C1E !important;
+}
+
+/* ─── Glass header ───────────────────────────────────────────────── */
+.site-header {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(22px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.60),
+    0 2px 20px rgba(80, 50, 140, 0.07) !important;
+}
+
+[data-theme="dark"] .site-header {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* ─── IOSGlassPill nav pill ──────────────────────────────────────── */
+/* blur(12px) saturate(180%) + tint rgba(255,255,255,0.5) + shine */
+.site-nav {
+  background: rgba(255, 255, 255, 0.50) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.70),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.40),
+    0 1px 3px rgba(0, 0, 0, 0.07),
+    0 3px 10px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="dark"] .site-nav {
+  background: rgba(255, 255, 255, 0.50) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.nav-link:hover,
+.nav-link.current {
+  background: rgba(255, 255, 255, 0.76) !important;
+  color: #1C1C1E !important;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.current {
+  background: rgba(255, 255, 255, 0.76) !important;
+  color: #1C1C1E !important;
+}
+
+/* ─── Mobile nav ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .site-nav.is-open,
+  [data-theme="dark"] .site-nav.is-open {
+    background: rgba(255, 255, 255, 0.90) !important;
+    backdrop-filter: blur(22px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+    border: 0.5px solid rgba(255, 255, 255, 0.92) !important;
+    box-shadow:
+      inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.88),
+      0 12px 40px rgba(80, 50, 140, 0.10) !important;
+  }
+}
+
+/* ─── Hamburger ──────────────────────────────────────────────────── */
+.menu-toggle,
+[data-theme="dark"] .menu-toggle {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.72),
+    0 1px 3px rgba(0, 0, 0, 0.07),
+    0 3px 10px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ─── Primary / accent buttons — dark solid ──────────────────────── */
+.button-primary,
+.button-accent,
+[data-theme="dark"] .button-primary,
+[data-theme="dark"] .button-accent {
+  background: #1C1C1E !important;
+  border: none !important;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.22),
+    0 6px 16px rgba(0, 0, 0, 0.14) !important;
+  color: #fff !important;
+}
+
+.button-primary:hover,
+.button-accent:hover {
+  background: #3C3C43 !important;
+}
+
+/* ─── Secondary button — IOSGlassPill style ──────────────────────── */
+.button-secondary,
+[data-theme="dark"] .button-secondary {
+  background: rgba(255, 255, 255, 0.50) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.70),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.40),
+    0 1px 3px rgba(0, 0, 0, 0.07),
+    0 3px 10px rgba(0, 0, 0, 0.06) !important;
+  color: #1C1C1E !important;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* ─── Pills / tags / chips — IOSGlassPill style ──────────────────── */
+.pill,
+.city-chip,
+.tag,
+.status-pill,
+[data-theme="dark"] .pill,
+[data-theme="dark"] .city-chip,
+[data-theme="dark"] .tag,
+[data-theme="dark"] .status-pill {
+  background: rgba(255, 255, 255, 0.50) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.70),
+    0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  color: rgba(60, 60, 67, 0.60) !important;
+}
+
+/* ─── Card inverted stays dark glass ─────────────────────────────── */
+.card-inverted {
+  background: rgba(28, 28, 30, 0.72) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.13),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.07),
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 1px 2px rgba(0, 0, 0, 0.15) !important;
+  color: #fff !important;
+}
+
+/* ─── Featured price card — more opaque glass ────────────────────── */
+.price-card.featured,
+[data-theme="dark"] .price-card.featured {
+  background: rgba(255, 255, 255, 0.70) !important;
+  border-color: rgba(255, 255, 255, 0.92) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.85),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.48),
+    0 8px 32px rgba(80, 50, 140, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ─── Pricing switch ─────────────────────────────────────────────── */
+.pricing-switch,
+[data-theme="dark"] .pricing-switch {
+  background: rgba(255, 255, 255, 0.50) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.70),
+    0 1px 3px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ─── Announcement / promo bar — aurora tinted ───────────────────── */
+.announcement-bar,
+.promo-bar,
+[data-theme="dark"] .announcement-bar,
+[data-theme="dark"] .promo-bar {
+  background: rgba(237, 232, 255, 0.72) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border-bottom: 0.5px solid rgba(200, 185, 255, 0.50) !important;
+}
+
+/* ─── Table wrap ─────────────────────────────────────────────────── */
+.table-wrap,
+[data-theme="dark"] .table-wrap {
+  background: rgba(255, 255, 255, 0.52) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.78) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.72),
+    0 4px 24px rgba(80, 50, 140, 0.09) !important;
+  border-radius: 22px !important;
+}
+
+.comparison-table thead tr,
+[data-theme="dark"] .comparison-table thead tr {
+  background: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────── */
+.site-footer,
+[data-theme="dark"] .site-footer {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(22px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ─── Inputs ─────────────────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.10) !important;
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.70),
+    0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 14px !important;
+  color: #1C1C1E !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(0, 122, 255, 0.38) !important;
+  box-shadow:
+    0 0 0 3px rgba(0, 122, 255, 0.10),
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.82) !important;
+  outline: none !important;
+}
+
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="tel"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: rgba(255, 255, 255, 0.55) !important;
+  border-color: rgba(0, 0, 0, 0.10) !important;
+  color: #1C1C1E !important;
+}
+
+/* ─── Shimmer badge ──────────────────────────────────────────────── */
+.shimmer-badge,
+[data-theme="dark"] .shimmer-badge {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.80) !important;
+}
+
+/* ─── Theme toggle (hidden, but keep toggle-track neutral) ───────── */
+.toggle-track {
+  background: rgba(120, 120, 128, 0.20) !important;
+}
+
+/* ─── Body / global text resets for light mode ───────────────────── */
+body,
+main,
+[data-theme="dark"] body,
+[data-theme="dark"] main {
+  color: #1C1C1E !important;
+}
+
+.page-copy,
+.section-copy,
+.card-copy,
+.text-muted,
+.eyebrow,
+[data-theme="dark"] .page-copy,
+[data-theme="dark"] .section-copy,
+[data-theme="dark"] .card-copy,
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .eyebrow {
+  color: rgba(60, 60, 67, 0.60) !important;
+}
+
+/* ─── City tiles ─────────────────────────────────────────────────── */
+.city-tile {
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.55),
+    0 4px 24px rgba(80, 50, 140, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.city-tile:hover {
+  box-shadow:
+    inset 1.5px 1.5px 1px rgba(255, 255, 255, 0.65),
+    0 12px 40px rgba(80, 50, 140, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* end iOS aurora glass */
