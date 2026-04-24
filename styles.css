@@ -3592,35 +3592,41 @@ img {
 /* ── iOS liquid glass redesign layer ─────────────────────────────────── */
 
 :root {
-  --glass-bg: linear-gradient(140deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.46));
-  --glass-bg-strong: linear-gradient(150deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.56));
-  --glass-border: rgba(255, 255, 255, 0.58);
-  --glass-shadow: 0 24px 50px rgba(14, 31, 66, 0.14), 0 8px 20px rgba(66, 99, 156, 0.14);
+  --glass-bg: linear-gradient(140deg, rgba(255, 255, 255, 0.88), rgba(245, 251, 255, 0.82));
+  --glass-bg-strong: linear-gradient(150deg, rgba(255, 255, 255, 0.96), rgba(247, 252, 255, 0.9));
+  --glass-border: rgba(197, 218, 246, 0.75);
+  --glass-shadow: 0 20px 40px rgba(21, 46, 94, 0.12), 0 8px 18px rgba(67, 101, 161, 0.1);
   --glass-glow: rgba(110, 170, 255, 0.4);
-  --aurora-a: rgba(120, 196, 255, 0.22);
-  --aurora-b: rgba(180, 150, 255, 0.2);
-  --aurora-c: rgba(117, 236, 205, 0.2);
-  --ink: #0d1731;
-  --ink-soft: #39496d;
-  --line: rgba(164, 190, 230, 0.4);
-  --line-strong: rgba(133, 169, 223, 0.52);
-  --surface: rgba(255, 255, 255, 0.56);
-  --surface-alt: rgba(255, 255, 255, 0.68);
-  --surface-raised: rgba(248, 252, 255, 0.74);
-  --surface-strong: rgba(255, 255, 255, 0.85);
+  --aurora-a: rgba(88, 150, 255, 0.14);
+  --aurora-b: rgba(170, 132, 255, 0.12);
+  --aurora-c: rgba(95, 208, 180, 0.1);
+  --ink: #101828;
+  --ink-soft: #344054;
+  --line: rgba(159, 186, 225, 0.45);
+  --line-strong: rgba(124, 157, 206, 0.55);
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-alt: rgba(250, 253, 255, 0.94);
+  --surface-raised: rgba(255, 255, 255, 0.96);
+  --surface-strong: #ffffff;
 }
 
 [data-theme="dark"] {
-  --glass-bg: linear-gradient(150deg, rgba(18, 33, 63, 0.72), rgba(9, 18, 38, 0.54));
-  --glass-bg-strong: linear-gradient(145deg, rgba(28, 48, 88, 0.86), rgba(18, 31, 59, 0.72));
-  --glass-border: rgba(164, 198, 255, 0.28);
-  --glass-shadow: 0 24px 52px rgba(2, 5, 20, 0.56), 0 10px 26px rgba(0, 0, 0, 0.44);
+  --glass-bg: linear-gradient(150deg, rgba(18, 35, 67, 0.9), rgba(10, 23, 47, 0.84));
+  --glass-bg-strong: linear-gradient(145deg, rgba(30, 53, 96, 0.94), rgba(18, 35, 67, 0.9));
+  --glass-border: rgba(131, 168, 229, 0.42);
+  --glass-shadow: 0 24px 52px rgba(2, 5, 20, 0.62), 0 10px 26px rgba(0, 0, 0, 0.52);
   --glass-glow: rgba(125, 184, 255, 0.22);
-  --aurora-a: rgba(65, 143, 255, 0.2);
-  --aurora-b: rgba(162, 113, 255, 0.2);
-  --aurora-c: rgba(44, 179, 151, 0.18);
-  --ink: #e8f0ff;
-  --ink-soft: #b6c6e8;
+  --aurora-a: rgba(65, 143, 255, 0.14);
+  --aurora-b: rgba(162, 113, 255, 0.13);
+  --aurora-c: rgba(44, 179, 151, 0.11);
+  --ink: #f4f8ff;
+  --ink-soft: #cbd8f1;
+  --line: rgba(80, 111, 165, 0.42);
+  --line-strong: rgba(114, 152, 218, 0.52);
+  --surface: rgba(15, 27, 54, 0.86);
+  --surface-alt: rgba(19, 34, 67, 0.92);
+  --surface-raised: rgba(24, 43, 82, 0.96);
+  --surface-strong: rgba(33, 56, 101, 0.98);
 }
 
 body {
@@ -3628,7 +3634,7 @@ body {
     radial-gradient(90vw 60vh at 10% -10%, var(--aurora-a), transparent 60%),
     radial-gradient(70vw 55vh at 100% 0%, var(--aurora-b), transparent 62%),
     radial-gradient(80vw 80vh at 50% 100%, var(--aurora-c), transparent 72%),
-    linear-gradient(180deg, #eaf2ff 0%, #edf6ff 32%, #f8fbff 100%);
+    linear-gradient(180deg, #f2f6ff 0%, #f6f9ff 35%, #fbfdff 100%);
 }
 
 [data-theme="dark"] body {
@@ -3636,12 +3642,12 @@ body {
     radial-gradient(90vw 60vh at 10% -10%, var(--aurora-a), transparent 60%),
     radial-gradient(70vw 55vh at 100% 0%, var(--aurora-b), transparent 62%),
     radial-gradient(80vw 80vh at 50% 100%, var(--aurora-c), transparent 72%),
-    linear-gradient(180deg, #060d1f 0%, #09142a 46%, #091120 100%);
+    linear-gradient(180deg, #060d1f 0%, #09142a 48%, #0c162d 100%);
 }
 
 body::before {
-  opacity: 0.3;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.46) 1px, transparent 1px);
+  opacity: 0.2;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.42) 1px, transparent 1px);
 }
 
 .site-header,
@@ -3680,7 +3686,7 @@ body::before {
 .action-toggle {
   border: 1px solid var(--glass-border);
   background: var(--glass-bg-strong);
-  box-shadow: 0 10px 30px rgba(35, 78, 157, 0.12);
+  box-shadow: 0 10px 24px rgba(35, 78, 157, 0.1);
 }
 
 .button-primary,
@@ -3696,6 +3702,42 @@ body::before {
 .button-secondary,
 .button-ghost {
   color: var(--ink);
+}
+
+.page-title,
+.section-title,
+.section-title-large,
+.card h3,
+.listing-card h3,
+.quote-card h3,
+.office-card h3 {
+  color: var(--ink);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+.page-copy,
+.card-copy,
+.listing-meta,
+.simple-list,
+.check-list,
+p,
+li,
+td,
+th,
+label,
+input,
+textarea,
+select {
+  color: var(--ink-soft);
+}
+
+[data-theme="dark"] .page-title,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-title-large,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .listing-card h3,
+[data-theme="dark"] .quote-card h3 {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
 }
 
 .card:hover,
@@ -3722,7 +3764,7 @@ body::before {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(12, 22, 46, 0.08), rgba(8, 16, 36, 0.22));
+  background: linear-gradient(180deg, rgba(12, 22, 46, 0.2), rgba(8, 16, 36, 0.42));
 }
 
 .hero-bg > * {
