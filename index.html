@@ -44,15 +44,18 @@
           </div>
 
           <aside class="hero-panel hero-panel-float" data-reveal data-reveal-delay="150">
-            <div class="img-zoom" style="border-radius:var(--radius-md);overflow:hidden;">
-              <img
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=720&q=80"
-                alt="Modern luxury apartment interior"
-                loading="eager"
-                style="height:200px;width:100%;object-fit:cover;border-radius:var(--radius-md);display:block;border:none;"
-              />
-            </div>
             <div class="status-pill live-dot" style="width:fit-content;">Live platform</div>
+            <div class="el-chat-window" aria-label="Example property matching conversation">
+              <div class="el-chat-row">
+                <div class="el-chat-bubble">Looking for a verified 4 BHK near Golf Course Road with clean title.</div>
+              </div>
+              <div class="el-chat-row">
+                <div class="el-chat-bubble">Matched 12 listings, 3 top agents, and 2 new developer launches.</div>
+              </div>
+              <div class="el-chat-row">
+                <div class="el-chat-bubble">Prioritize site visits this weekend and share agent credentials.</div>
+              </div>
+            </div>
             <div class="hero-panel-grid">
               <div class="metric">
                 <strong class="counting" data-count-to="11000" data-count-suffix="+">0</strong>
@@ -286,6 +289,63 @@
               <h3 style="font-size:1rem;margin-bottom:6px;">Maps &amp; Insights</h3>
               <p class="card-copy" style="font-size:0.84rem;">Locality intelligence, sector pages, and market content to build trust.</p>
               <a class="button button-ghost animated-underline" href="maps.html" style="font-size:0.82rem;margin-top:10px;">Open →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Platform bento ──────────────────────────────────────────────── -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <div>
+              <div class="section-label-row">
+                <span class="eyebrow" style="margin:0;">One operating system</span>
+              </div>
+              <h2 class="section-title-large">From buyer brief to project launch, every workflow sits in one place.</h2>
+            </div>
+            <p class="section-copy" style="font-size:0.88rem;">
+              Inspired by modern AI platforms: compact cards, clear actions, live-looking panels, and no visual noise.
+            </p>
+          </div>
+
+          <div class="el-bento">
+            <article class="card el-chat-card" data-reveal>
+              <span class="status-pill">Agent workspace</span>
+              <h3>Qualify buyer requirements and route them to verified inventory.</h3>
+              <div class="el-chat-window">
+                <div class="el-chat-row">
+                  <div class="el-chat-bubble">Budget: ₹4-6 Cr. Needs possession-ready inventory.</div>
+                </div>
+                <div class="el-chat-row">
+                  <div class="el-chat-bubble">3 projects shortlisted. Builder floor specialists notified.</div>
+                </div>
+                <div class="el-chat-row">
+                  <div class="el-chat-bubble">Send a shareable shortlist with agent trust profile.</div>
+                </div>
+              </div>
+              <div class="el-progress" aria-hidden="true">
+                <span style="--value: 86%;"></span>
+                <span style="--value: 62%;"></span>
+                <span style="--value: 74%;"></span>
+              </div>
+            </article>
+
+            <article class="card el-code-card" data-reveal data-reveal-delay="100">
+              <span class="status-pill">Developer launch kit</span>
+              <h3>Structured pages, brokerage updates, locality context, and lead capture.</h3>
+              <pre class="el-code"><code>launch.project({
+  market: "Gurugram",
+  inventory: "verified",
+  audience: ["agents", "buyers"],
+  workflow: "site-visit-ready"
+});</code></pre>
+              <div class="el-product-tabs">
+                <a href="developer.html">Developers</a>
+                <a href="builder.html">Builders</a>
+                <a href="find-agent.html">Agents</a>
+                <a href="maps.html">Markets</a>
+              </div>
             </article>
           </div>
         </div>
