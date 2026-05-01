@@ -5410,6 +5410,23 @@ main {
   box-shadow: none !important;
 }
 
+.card-inverted .eyebrow,
+.surface-dark .eyebrow,
+.price-card.featured .eyebrow,
+[data-theme="dark"] .card-inverted .eyebrow,
+[data-theme="dark"] .surface-dark .eyebrow,
+[data-theme="dark"] .price-card.featured .eyebrow {
+  color: var(--on-dark-soft) !important;
+}
+
+.check-list-compact {
+  margin-top: 16px;
+}
+
+.check-list-compact li {
+  font-size: 0.88rem;
+}
+
 .page-hero,
 .home-hero {
   padding: clamp(42px, 6vw, 78px) 0 clamp(28px, 4vw, 48px) !important;
