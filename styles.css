@@ -41,10 +41,10 @@
   --shadow-md: 0 8px 24px rgb(0 0 0 / 0.08);
   --shadow-lg: 0 22px 60px rgb(0 0 0 / 0.12);
   --shadow-xl: 0 34px 90px rgb(0 0 0 / 0.16);
-  --radius-sm: var(--radius);
-  --radius-md: calc(var(--radius) + 0.25rem);
-  --radius-lg: calc(var(--radius) + 0.75rem);
-  --radius-xl: calc(var(--radius) + 1.25rem);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --container: min(1180px, calc(100vw - 32px));
   --font-display: "Sora", "Inter", "Segoe UI", sans-serif;
   --glass-bg: var(--card);
@@ -848,7 +848,6 @@ main {
 .price-card.featured {
   border-color: var(--ink);
   background: var(--surface);
-  box-shadow: 0 0 0 1px var(--ink), var(--shadow-lg);
 }
 
 .pricing-switch {
@@ -4062,9 +4061,6 @@ main         { position: relative; z-index: 2; }
     rgba(220, 195, 255, 0.58) 100%
   ) !important;
   border-color: rgba(195, 205, 255, 0.72) !important;
-  box-shadow:
-    0 16px 56px rgba(100, 100, 200, 0.22),
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.92) !important;
 }
 
 [data-theme="dark"] .price-card.featured {
@@ -4074,9 +4070,6 @@ main         { position: relative; z-index: 2; }
     rgba(80, 44, 140, 0.58) 100%
   ) !important;
   border-color: rgba(120, 100, 200, 0.32) !important;
-  box-shadow:
-    0 16px 56px rgba(60, 60, 160, 0.35),
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.12) !important;
 }
 
 /* ─── Glass comparison table wrapper ─────────────────────────────── */
@@ -4420,17 +4413,11 @@ body::after {
 .price-card.featured {
   background: rgba(255,255,255,0.72) !important;
   border-color: rgba(255,255,255,0.85) !important;
-  box-shadow:
-    0 16px 56px rgba(0,0,0,0.12),
-    inset 0 1.5px 0 rgba(255,255,255,0.95) !important;
 }
 
 [data-theme="dark"] .price-card.featured {
   background: rgba(255,255,255,0.10) !important;
   border-color: rgba(255,255,255,0.18) !important;
-  box-shadow:
-    0 16px 56px rgba(0,0,0,0.50),
-    inset 0 1.5px 0 rgba(255,255,255,0.12) !important;
 }
 
 /* Neutral announcement / promo bar */
@@ -5524,6 +5511,22 @@ main {
   -webkit-backdrop-filter: none !important;
 }
 
+.hero-panel,
+.card,
+.price-card,
+.quote-card {
+  border-radius: var(--radius-lg) !important;
+}
+
+.metric {
+  border-radius: var(--radius-md) !important;
+}
+
+.lead-magnet-band,
+.cta-band {
+  border-radius: var(--radius-xl) !important;
+}
+
 .card p,
 .card li,
 .hero-panel p,
@@ -5648,6 +5651,55 @@ main {
   background: var(--on-dark) !important;
   border-color: var(--on-dark) !important;
   color: var(--dark-bg) !important;
+}
+
+.button,
+.button-primary,
+.button-accent,
+.button-secondary,
+.button-on-dark {
+  min-height: 2.5rem !important;
+  padding: 0 1rem !important;
+  border-radius: var(--radius-md) !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+.button-primary,
+.button-accent,
+.button-on-dark {
+  background: var(--primary) !important;
+  border: 1px solid var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.button-secondary,
+.price-card.featured .button-primary,
+.price-card.featured .button-accent,
+.price-card.featured .button-on-dark {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+.price-card.featured .button-primary,
+.price-card.featured .button-accent,
+.price-card.featured .button-on-dark {
+  border-color: var(--on-dark-soft) !important;
+  color: var(--on-dark) !important;
+}
+
+.button-ghost {
+  min-height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--muted-foreground) !important;
+}
+
+.button-ghost:hover {
+  background: var(--muted) !important;
+  color: var(--foreground) !important;
 }
 
 .card-hover-invert:hover {
@@ -5916,6 +5968,19 @@ textarea::placeholder {
   color: var(--ink-soft) !important;
 }
 
+.card-inverted,
+.home-problem-card.card-inverted {
+  background: var(--brand-deep) !important;
+  color: var(--brand-cream) !important;
+  border: 1px solid oklch(1 0 0 / 10%) !important;
+}
+
+.price-card.featured {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
 @media (max-width: 1120px) {
   .site-nav {
     position: fixed;
@@ -5939,8 +6004,8 @@ textarea::placeholder {
     pointer-events: none;
     transform: translateX(100%);
     transition:
-      transform 260ms cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
+      transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform, opacity;
   }
 
@@ -5961,8 +6026,8 @@ textarea::placeholder {
     transform: translateX(0);
   }
 
-  .site-nav.is-open .nav-link,
-  .site-nav.is-open .theme-toggle-mobile {
+  .site-nav .nav-link,
+  .site-nav .theme-toggle-mobile {
     display: flex !important;
     justify-content: flex-start;
     width: 100%;
@@ -5973,10 +6038,48 @@ textarea::placeholder {
     background: transparent !important;
     font-size: 0.875rem;
     font-weight: 500;
+    opacity: 0;
+    transform: translateY(8px);
     transition:
+      opacity 220ms cubic-bezier(0.4, 0, 0.2, 1),
       background-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
       color 160ms cubic-bezier(0.4, 0, 0.2, 1),
-      transform 160ms cubic-bezier(0.4, 0, 0.2, 1);
+      transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0ms;
+  }
+
+  .site-nav.is-open .nav-link,
+  .site-nav.is-open .theme-toggle-mobile {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .site-nav.is-open .nav-link:nth-child(1) {
+    transition-delay: 50ms;
+  }
+
+  .site-nav.is-open .nav-link:nth-child(2) {
+    transition-delay: 100ms;
+  }
+
+  .site-nav.is-open .nav-link:nth-child(3) {
+    transition-delay: 150ms;
+  }
+
+  .site-nav.is-open .nav-link:nth-child(4) {
+    transition-delay: 200ms;
+  }
+
+  .site-nav.is-open .nav-link:nth-child(5) {
+    transition-delay: 250ms;
+  }
+
+  .site-nav.is-open .nav-link:nth-child(6) {
+    transition-delay: 300ms;
+  }
+
+  .site-nav.is-open .theme-toggle-mobile {
+    transition-delay: 350ms;
   }
 
   .site-nav.is-open .nav-link:hover,
@@ -6001,10 +6104,12 @@ textarea::placeholder {
     position: fixed;
     inset: 0;
     z-index: 60;
-    background: color-mix(in oklch, var(--background) 34%, transparent);
+    background: oklch(0 0 0 / 40%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .mobile-nav-backdrop.is-open {
@@ -6013,22 +6118,44 @@ textarea::placeholder {
   }
 }
 
+body.no-scroll {
+  scrollbar-gutter: stable;
+}
+
 @media (max-width: 640px) {
   .page-hero,
   .home-hero {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .section {
     padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .card,
+  .quote-card,
+  .price-card {
+    padding: 1.5rem !important;
+  }
+
+  .metric {
+    padding: 1rem !important;
   }
 
   .page-title {
-    font-size: clamp(1.5rem, 7.6vw, 2rem) !important;
-    line-height: 1.04 !important;
-    letter-spacing: -0.045em !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
   }
 
   .home-hero .page-title {
-    font-size: clamp(1.875rem, 8.8vw, 2.25rem) !important;
-    line-height: 1.03 !important;
-    letter-spacing: -0.05em !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
   }
 
   .home-hero .page-copy {
@@ -6047,8 +6174,24 @@ textarea::placeholder {
   }
 
   .section-title-large {
-    font-size: clamp(1.5rem, 7.2vw, 2rem) !important;
-    line-height: 1.06 !important;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .card h3,
+  .hero-panel h3,
+  .price-card h3,
+  .quote-card h3,
+  .article-card h3,
+  .listing-card h3,
+  .map-card h3,
+  .profile-card h3,
+  .section-title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
   }
 
   .page-hero.hero-bg .page-hero-copy,
