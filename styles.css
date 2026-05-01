@@ -5918,11 +5918,36 @@ textarea::placeholder {
 
 @media (max-width: 1120px) {
   .site-nav {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 70;
+    display: grid;
+    align-content: start;
+    gap: 0.5rem;
+    width: min(22rem, calc(100vw - 2rem));
+    max-height: none;
+    padding: 5rem 1rem 1rem !important;
+    overflow-y: auto;
+    background: var(--card) !important;
+    border: 0;
+    border-left: 1px solid var(--border) !important;
+    border-radius: 0 !important;
+    box-shadow: var(--shadow-lg) !important;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition:
+      transform 260ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
   }
 
   .menu-toggle {
     display: inline-flex;
+    position: relative;
+    z-index: 80;
   }
 
   .header-inner {
@@ -5931,22 +5956,9 @@ textarea::placeholder {
 
   .site-nav.is-open,
   [data-theme="dark"] .site-nav.is-open {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
-    display: grid !important;
-    grid-template-columns: 1fr;
-    gap: 6px;
-    width: 100%;
-    max-height: calc(100vh - 96px);
-    overflow-y: auto;
-    padding: 12px !important;
-    border-radius: 22px !important;
-    background: var(--surface-raised) !important;
-    border: 1px solid var(--line-strong) !important;
-    box-shadow: var(--shadow-lg) !important;
-    color: var(--ink) !important;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
   }
 
   .site-nav.is-open .nav-link,
@@ -5954,11 +5966,17 @@ textarea::placeholder {
     display: flex !important;
     justify-content: flex-start;
     width: 100%;
-    min-height: 42px;
-    padding: 10px 12px;
-    border-radius: 14px;
+    min-height: 2.5rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: var(--radius-md);
     color: var(--ink) !important;
     background: transparent !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition:
+      background-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 160ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .site-nav.is-open .nav-link:hover,
@@ -5975,27 +5993,42 @@ textarea::placeholder {
 
   .site-nav.is-open .theme-toggle-mobile {
     margin-top: 4px;
-    border: 1px solid var(--line) !important;
-    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    background: var(--muted) !important;
+  }
+
+  .mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: color-mix(in oklch, var(--background) 34%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-nav-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
 @media (max-width: 640px) {
   .page-hero,
   .home-hero {
-    padding-top: 34px !important;
+    padding-top: 2rem !important;
   }
 
   .page-title {
-    font-size: clamp(2.08rem, 11.5vw, 3.35rem) !important;
-    line-height: 1.01 !important;
-    letter-spacing: -0.058em !important;
+    font-size: clamp(1.5rem, 7.6vw, 2rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.045em !important;
   }
 
   .home-hero .page-title {
-    font-size: clamp(2rem, 10.5vw, 2.8rem) !important;
+    font-size: clamp(1.875rem, 8.8vw, 2.25rem) !important;
     line-height: 1.03 !important;
-    letter-spacing: -0.052em !important;
+    letter-spacing: -0.05em !important;
   }
 
   .home-hero .page-copy {
@@ -6014,7 +6047,7 @@ textarea::placeholder {
   }
 
   .section-title-large {
-    font-size: clamp(1.7rem, 8.5vw, 2.45rem) !important;
+    font-size: clamp(1.5rem, 7.2vw, 2rem) !important;
     line-height: 1.06 !important;
   }
 
