@@ -5454,6 +5454,28 @@ main {
   background-color: var(--bg) !important;
 }
 
+.home-hero.hero-bg {
+  background: var(--bg) !important;
+  background-image: none !important;
+}
+
+.home-hero::before,
+.home-hero.hero-bg::after {
+  display: none !important;
+}
+
+.home-hero .hero-copy,
+.home-hero.hero-bg .hero-copy {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.home-hero .page-copy,
+.home-hero .hero-kpis .pill {
+  color: var(--ink-soft) !important;
+}
+
 .hero-bg::after {
   background:
     linear-gradient(90deg, rgba(244, 238, 226, 0.96) 0%, rgba(244, 238, 226, 0.90) 55%, rgba(244, 238, 226, 0.70) 100%),
@@ -5844,11 +5866,31 @@ textarea::placeholder {
     padding-top: 34px !important;
   }
 
-  .page-title,
-  .home-hero .page-title {
+  .page-title {
     font-size: clamp(2.08rem, 11.5vw, 3.35rem) !important;
     line-height: 1.01 !important;
     letter-spacing: -0.058em !important;
+  }
+
+  .home-hero .page-title {
+    font-size: clamp(2rem, 10.5vw, 2.8rem) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.052em !important;
+  }
+
+  .home-hero .page-copy {
+    margin-top: 16px !important;
+    font-size: 0.94rem !important;
+    line-height: 1.62;
+  }
+
+  .home-hero .hero-actions {
+    display: grid;
+    gap: 10px;
+  }
+
+  .home-hero .hero-actions .button {
+    width: 100%;
   }
 
   .section-title-large {
