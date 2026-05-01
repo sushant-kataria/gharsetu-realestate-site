@@ -1351,6 +1351,12 @@ main {
   font-weight: 600;
 }
 
+.lead-message {
+  color: var(--success);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 .cta-band {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
