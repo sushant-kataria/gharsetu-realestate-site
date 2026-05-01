@@ -9,6 +9,16 @@
   } catch (_) {}
 })();
 
+
+const syncThemeClasses = () => {
+  if (!document.body) {
+    return;
+  }
+
+  document.body.classList.add("theme-default", "theme-container");
+  document.body.classList.toggle("dark", document.documentElement.dataset.theme === "dark");
+};
+
 const siteConfig = {
   primaryNav: [
     { href: "index.html", label: "Home", page: "home" },
@@ -102,6 +112,7 @@ const renderHeader = () => {
       const next = html.dataset.theme === "dark" ? "light" : "dark";
       html.dataset.theme = next;
       html.classList.toggle("dark", next === "dark");
+      document.body?.classList.toggle("dark", next === "dark");
       localStorage.setItem("gs-theme", next);
       // Update all toggle labels
       root.querySelectorAll(".toggle-label").forEach((el) => {
@@ -899,6 +910,7 @@ const setupLeadMagnet = () => {
   });
 };
 
+syncThemeClasses();
 renderAnnouncementBar();
 renderHeader();
 renderFooter();
