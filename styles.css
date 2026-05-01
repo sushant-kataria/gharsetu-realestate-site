@@ -5785,3 +5785,49 @@ textarea::placeholder {
     background: var(--surface) !important;
   }
 }
+
+/* Light-mode image heroes need a light veil; the original dark overlay
+   remains useful only when the user explicitly switches to dark mode. */
+.hero-bg {
+  background-color: var(--bg) !important;
+}
+
+.hero-bg::after {
+  background:
+    linear-gradient(90deg, rgba(244, 237, 223, 0.96) 0%, rgba(244, 237, 223, 0.90) 54%, rgba(244, 237, 223, 0.78) 100%),
+    linear-gradient(to top, rgba(244, 237, 223, 0.92), rgba(244, 237, 223, 0.70)) !important;
+}
+
+.hero-bg .page-hero-copy,
+.hero-bg .hero-copy {
+  color: var(--ink) !important;
+}
+
+.hero-bg .page-title,
+.hero-bg .breadcrumbs,
+.hero-bg .breadcrumbs a,
+.hero-bg .breadcrumbs span {
+  color: var(--ink) !important;
+}
+
+.hero-bg .breadcrumbs-sub,
+.hero-bg .eyebrow {
+  color: var(--ink-soft) !important;
+}
+
+[data-theme="dark"] .hero-bg {
+  background-color: #090806 !important;
+}
+
+[data-theme="dark"] .hero-bg::after {
+  background:
+    linear-gradient(135deg, rgba(9, 8, 6, 0.88) 0%, rgba(9, 8, 6, 0.58) 58%, rgba(9, 8, 6, 0.34) 100%),
+    linear-gradient(to top, rgba(9, 8, 6, 0.78), rgba(9, 8, 6, 0.30)) !important;
+}
+
+[data-theme="dark"] .hero-bg .page-title,
+[data-theme="dark"] .hero-bg .breadcrumbs,
+[data-theme="dark"] .hero-bg .breadcrumbs a,
+[data-theme="dark"] .hero-bg .breadcrumbs span {
+  color: var(--ink) !important;
+}
