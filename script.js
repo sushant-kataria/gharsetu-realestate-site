@@ -88,7 +88,7 @@ const renderHeader = () => {
             <span class="toggle-label">${isDark ? "Light" : "Dark"}</span>
           </button>
           <a class="button button-secondary" href="contact.html">Talk to sales</a>
-          <a class="button button-primary" href="pricing.html">Start free trial</a>
+          <a class="button button-primary" href="pricing.html">Get started</a>
         </div>
       </div>
     </header>
@@ -764,8 +764,8 @@ const renderAnnouncementBar = () => {
   bar.className = "announcement-bar";
   bar.setAttribute("role", "banner");
   bar.innerHTML = `
-    <span>🎉 Limited offer: Get <strong>2 months free</strong> when you choose an annual plan.
-      <a href="pricing.html">See pricing →</a>
+    <span>GharSetu for teams is live: verified inventory, agent workflows, and project launches in one place.
+      <a href="pricing.html">View plans -></a>
     </span>
     <button class="announcement-dismiss" aria-label="Dismiss announcement" type="button">×</button>
   `;
