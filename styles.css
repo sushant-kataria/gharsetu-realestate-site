@@ -5762,6 +5762,36 @@ textarea::placeholder {
   filter: saturate(0.95) contrast(1.02);
 }
 
+.hero-panel-image {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.hero-panel-image-tall {
+  height: 200px;
+}
+
+.hero-panel-image-large {
+  max-height: 220px;
+  height: auto;
+}
+
+.map-card-media {
+  height: 120px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.media-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .marquee-wrap,
 .site-footer,
 [data-theme="dark"] .marquee-wrap,
