@@ -5490,9 +5490,27 @@ main {
   background: transparent !important;
 }
 
+.home-hero .page-title,
+.home-hero .page-copy,
+.home-hero .hero-actions,
+.home-hero .hero-kpis {
+  position: relative;
+  z-index: 1;
+}
+
+.home-hero .page-title {
+  color: var(--ink) !important;
+}
+
 .home-hero .page-copy,
 .home-hero .hero-kpis .pill {
   color: var(--ink-soft) !important;
+}
+
+.home-hero .button-secondary {
+  background: var(--surface-raised) !important;
+  color: var(--ink) !important;
+  border-color: var(--line-strong) !important;
 }
 
 .hero-bg::after {
