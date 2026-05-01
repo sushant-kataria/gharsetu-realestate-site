@@ -5,6 +5,7 @@
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const theme = saved || (prefersDark ? "dark" : "light");
     document.documentElement.dataset.theme = theme;
+    document.documentElement.classList.toggle("dark", theme === "dark");
   } catch (_) {}
 })();
 
@@ -100,6 +101,7 @@ const renderHeader = () => {
       const html = document.documentElement;
       const next = html.dataset.theme === "dark" ? "light" : "dark";
       html.dataset.theme = next;
+      html.classList.toggle("dark", next === "dark");
       localStorage.setItem("gs-theme", next);
       // Update all toggle labels
       root.querySelectorAll(".toggle-label").forEach((el) => {

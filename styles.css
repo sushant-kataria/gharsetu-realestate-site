@@ -1,58 +1,107 @@
+/* ── Global design tokens ───────────────────────────────────────────── */
 :root {
-  /* ── Pure black & white system (light mode) ───────────────────── */
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --surface-alt: #f7f7f7;
-  --surface-raised: #efefef;
-  --surface-strong: #ffffff;
-  --ink: #000000;
-  --ink-soft: #525252;
-  --ink-muted: #a3a3a3;
-  --line: #e5e5e5;
-  --line-strong: #c8c8c8;
-  /* Brand — now pure black */
-  --brand: #000000;
-  --brand-deep: #171717;
-  --brand-light: #f3f3f3;
-  --accent: #000000;
-  --accent-soft: rgba(0, 0, 0, 0.06);
-  --success: #404040;
-  --gold: #404040;
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  --radius: 0.625rem;
+  --background:         oklch(1 0 0);
+  --foreground:         oklch(0.145 0 0);
+  --card:               oklch(1 0 0);
+  --card-foreground:    oklch(0.145 0 0);
+  --primary:            oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary:          oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted:              oklch(0.97 0 0);
+  --muted-foreground:   oklch(0.556 0 0);
+  --accent:             oklch(0.97 0 0);
+  --accent-foreground:  oklch(0.205 0 0);
+  --destructive:        oklch(0.577 0.245 27.325);
+  --border:             oklch(0.922 0 0);
+  --input:              oklch(0.922 0 0);
+  --ring:               oklch(0.708 0 0);
+  --surface:            oklch(0.98 0 0);
+
+  /* Compatibility aliases for the existing static site CSS. */
+  --bg: var(--background);
+  --surface-alt: var(--muted);
+  --surface-raised: var(--card);
+  --surface-strong: var(--card);
+  --ink: var(--foreground);
+  --ink-soft: var(--muted-foreground);
+  --ink-muted: var(--muted-foreground);
+  --line: var(--border);
+  --line-strong: var(--input);
+  --brand: var(--primary);
+  --brand-deep: var(--primary);
+  --brand-light: var(--secondary);
+  --accent-soft: var(--muted);
+  --success: oklch(0.45 0.12 150);
+  --gold: oklch(0.55 0.10 75);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 22px 60px rgb(0 0 0 / 0.12);
+  --shadow-xl: 0 34px 90px rgb(0 0 0 / 0.16);
+  --radius-sm: var(--radius);
+  --radius-md: calc(var(--radius) + 0.25rem);
+  --radius-lg: calc(var(--radius) + 0.75rem);
+  --radius-xl: calc(var(--radius) + 1.25rem);
   --container: min(1180px, calc(100vw - 32px));
+  --font-display: "Sora", "Inter", "Segoe UI", sans-serif;
+  --glass-bg: var(--card);
+  --glass-bg-strong: var(--card);
+  --glass-border: var(--border);
+  --glass-shadow: var(--shadow-md);
+  --glass-shadow-hover: var(--shadow-lg);
+  --glass-blur: none;
+  --glass-blur-sm: none;
+  --rg: var(--radius-lg);
+  --rg-sm: var(--radius-md);
 }
 
-/* ── Dark mode ────────────────────────────────────────────────────── */
+.dark,
 [data-theme="dark"] {
-  --bg: #000000;
-  --surface: #0c0c0c;
-  --surface-alt: #141414;
-  --surface-raised: #1c1c1c;
-  --surface-strong: #222222;
-  --ink: #ffffff;
-  --ink-soft: #a3a3a3;
-  --ink-muted: #525252;
-  --line: #222222;
-  --line-strong: #333333;
-  --brand: #ffffff;
-  --brand-deep: #e5e5e5;
-  --brand-light: #1a1a1a;
-  --accent: #ffffff;
-  --accent-soft: rgba(255, 255, 255, 0.07);
-  --success: #a3a3a3;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.7);
-  --shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.8);
+  --background:         oklch(0.145 0 0);
+  --foreground:         oklch(0.985 0 0);
+  --card:               oklch(0.205 0 0);
+  --card-foreground:    oklch(0.985 0 0);
+  --primary:            oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary:          oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted:              oklch(0.269 0 0);
+  --muted-foreground:   oklch(0.708 0 0);
+  --accent:             oklch(0.371 0 0);
+  --accent-foreground:  oklch(0.985 0 0);
+  --destructive:        oklch(0.704 0.191 22.216);
+  --border:             oklch(1 0 0 / 10%);
+  --input:              oklch(1 0 0 / 15%);
+  --ring:               oklch(0.556 0 0);
+  --surface:            oklch(0.2 0 0);
+
+  /* Compatibility aliases for the existing static site CSS. */
+  --bg: var(--background);
+  --surface-alt: var(--muted);
+  --surface-raised: var(--card);
+  --surface-strong: var(--card);
+  --ink: var(--foreground);
+  --ink-soft: var(--muted-foreground);
+  --ink-muted: var(--muted-foreground);
+  --line: var(--border);
+  --line-strong: var(--input);
+  --brand: var(--primary);
+  --brand-deep: var(--primary);
+  --brand-light: var(--secondary);
+  --accent-soft: var(--muted);
+  --success: oklch(0.75 0.12 150);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.32);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.36);
+  --shadow-lg: 0 22px 60px rgb(0 0 0 / 0.45);
+  --shadow-xl: 0 34px 90px rgb(0 0 0 / 0.55);
+  --glass-bg: var(--card);
+  --glass-bg-strong: var(--card);
+  --glass-border: var(--border);
+  --glass-shadow: var(--shadow-md);
+  --glass-shadow-hover: var(--shadow-lg);
+  --glass-blur: none;
+  --glass-blur-sm: none;
 }
 
 * {
@@ -3594,41 +3643,6 @@ img {
    Frosted translucent panels · animated gradient mesh · spring motion
 ═══════════════════════════════════════════════════════════════════ */
 
-/* ─── Glass design tokens ───────────────────────────────────────── */
-:root {
-  --glass-bg:        rgba(255, 255, 255, 0.52);
-  --glass-bg-strong: rgba(255, 255, 255, 0.70);
-  --glass-border:    rgba(255, 255, 255, 0.78);
-  --glass-shadow:
-    0 8px 32px rgba(80, 90, 160, 0.12),
-    0 2px 8px  rgba(80, 90, 160, 0.06),
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.90);
-  --glass-shadow-hover:
-    0 20px 56px rgba(80, 90, 160, 0.20),
-    0 4px 12px  rgba(80, 90, 160, 0.10),
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.92);
-  --glass-blur:    blur(22px) saturate(1.9) brightness(1.03);
-  --glass-blur-sm: blur(14px) saturate(1.7) brightness(1.02);
-  --rg:    24px;
-  --rg-sm: 16px;
-}
-
-[data-theme="dark"] {
-  --glass-bg:        rgba(22, 22, 40, 0.58);
-  --glass-bg-strong: rgba(14, 14, 28, 0.74);
-  --glass-border:    rgba(255, 255, 255, 0.13);
-  --glass-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.55),
-    0 2px 8px  rgba(0, 0, 0, 0.30),
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.10);
-  --glass-shadow-hover:
-    0 20px 56px rgba(0, 0, 0, 0.70),
-    0 4px 12px  rgba(0, 0, 0, 0.40),
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.13);
-  --glass-blur:    blur(22px) saturate(1.8) brightness(0.96);
-  --glass-blur-sm: blur(14px) saturate(1.6) brightness(0.95);
-}
-
 /* ─── Animated gradient mesh background ─────────────────────────── */
 
 /* Disable old dot grid */
@@ -4280,18 +4294,6 @@ body::after {
     radial-gradient(ellipse 700px 700px at 6%  88%, rgba(255,255,255,0.022) 0%, transparent 60%);
 }
 
-/* Neutral glass shadow tokens */
-:root {
-  --glass-shadow:
-    0 8px 32px rgba(0,0,0,0.10),
-    0 2px 8px  rgba(0,0,0,0.06),
-    inset 0 1.5px 0 rgba(255,255,255,0.90);
-  --glass-shadow-hover:
-    0 20px 56px rgba(0,0,0,0.15),
-    0 4px 12px  rgba(0,0,0,0.08),
-    inset 0 1.5px 0 rgba(255,255,255,0.92);
-}
-
 /* Neutral header */
 .site-header {
   background: rgba(255,255,255,0.74) !important;
@@ -4484,59 +4486,6 @@ textarea:focus {
    ElevenLabs-inspired editorial product system
    Adapted for GharSetu with original real-estate content.
 ═══════════════════════════════════════════════════════════════════ */
-
-:root {
-  --bg: #f6f1e8;
-  --surface: #fbf7ef;
-  --surface-alt: #eee7db;
-  --surface-raised: #ffffff;
-  --surface-strong: #161513;
-  --ink: #151412;
-  --ink-soft: #5f5a51;
-  --ink-muted: #9d9588;
-  --line: rgba(21, 20, 18, 0.13);
-  --line-strong: rgba(21, 20, 18, 0.28);
-  --brand: #151412;
-  --brand-deep: #0d0c0b;
-  --brand-light: #ebe2d5;
-  --accent: #7d6a52;
-  --accent-soft: rgba(125, 106, 82, 0.12);
-  --success: #2f6f54;
-  --gold: #a6773a;
-  --shadow-sm: 0 1px 2px rgba(21, 20, 18, 0.05);
-  --shadow-md: 0 8px 24px rgba(21, 20, 18, 0.08);
-  --shadow-lg: 0 22px 60px rgba(21, 20, 18, 0.12);
-  --shadow-xl: 0 34px 90px rgba(21, 20, 18, 0.16);
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 34px;
-  --container: min(1240px, calc(100vw - 40px));
-  --font-display: "Sora", "Inter", "Segoe UI", sans-serif;
-}
-
-[data-theme="dark"] {
-  --bg: #0d0c0b;
-  --surface: #151412;
-  --surface-alt: #211f1b;
-  --surface-raised: #1b1916;
-  --surface-strong: #f6f1e8;
-  --ink: #f8f3eb;
-  --ink-soft: #b9b1a5;
-  --ink-muted: #756f66;
-  --line: rgba(248, 243, 235, 0.13);
-  --line-strong: rgba(248, 243, 235, 0.25);
-  --brand: #f8f3eb;
-  --brand-deep: #ffffff;
-  --brand-light: #24211d;
-  --accent: #d0b58d;
-  --accent-soft: rgba(208, 181, 141, 0.14);
-  --success: #a9d8bd;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.32);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.36);
-  --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.45);
-  --shadow-xl: 0 34px 90px rgba(0, 0, 0, 0.55);
-}
 
 html {
   font-size: 15px;
@@ -5213,10 +5162,6 @@ main {
 }
 
 @media (max-width: 640px) {
-  :root {
-    --container: min(100vw - 28px, 1240px);
-  }
-
   .header-inner {
     padding: 12px 0;
   }
@@ -5252,48 +5197,6 @@ main {
    One final source of truth for the ElevenLabs-inspired look: restrained
    type, solid readable surfaces, and explicit light/dark hero behavior.
 ═══════════════════════════════════════════════════════════════════ */
-
-:root {
-  --bg: #f4eee2;
-  --surface: #fffaf2;
-  --surface-alt: #eee6d8;
-  --surface-raised: #ffffff;
-  --ink: #141311;
-  --ink-soft: #504a42;
-  --ink-muted: #82786b;
-  --line: rgba(20, 19, 17, 0.14);
-  --line-strong: rgba(20, 19, 17, 0.28);
-  --brand: #141311;
-  --brand-deep: #080706;
-  --accent: #8a7256;
-  --success: #2f6f54;
-  --on-dark: #f8f3eb;
-  --on-dark-soft: rgba(248, 243, 235, 0.76);
-  --dark-bg: #080706;
-  --dark-surface: #12100e;
-  --dark-surface-raised: #191612;
-  --dark-line: rgba(248, 243, 235, 0.16);
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 30px;
-}
-
-[data-theme="dark"] {
-  --bg: var(--dark-bg);
-  --surface: var(--dark-surface);
-  --surface-alt: #1c1915;
-  --surface-raised: var(--dark-surface-raised);
-  --ink: #f8f3eb;
-  --ink-soft: #d3cabc;
-  --ink-muted: #9e9486;
-  --line: var(--dark-line);
-  --line-strong: rgba(248, 243, 235, 0.30);
-  --brand: #f8f3eb;
-  --brand-deep: #ffffff;
-  --accent: #d0b58d;
-  --success: #a9d8bd;
-}
 
 html {
   font-size: 15px;
@@ -6036,10 +5939,6 @@ textarea::placeholder {
 }
 
 @media (max-width: 640px) {
-  :root {
-    --container: min(100vw - 28px, 1240px);
-  }
-
   .page-hero,
   .home-hero {
     padding-top: 34px !important;
