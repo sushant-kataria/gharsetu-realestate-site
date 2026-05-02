@@ -3684,7 +3684,7 @@ body::after {
 /* All content layers sit above the mesh */
 .site-header { position: relative; z-index: 40; }
 .site-footer { position: relative; z-index: 3; }
-main         { position: relative; z-index: 2; }
+main         { position: relative; z-index: 1; }
 
 /* ─── Glass surface ─────────────────────────────────────────────── */
 .card,
@@ -5784,4 +5784,10 @@ textarea::placeholder {
     border: 1px solid var(--line) !important;
     background: var(--surface) !important;
   }
+}
+
+/* Injected header mount: stack above <main> so the open mobile nav is not covered. */
+[data-site-header] {
+  position: relative;
+  z-index: 2;
 }
