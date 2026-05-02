@@ -5785,10 +5785,3 @@ textarea::placeholder {
     background: var(--surface) !important;
   }
 }
-
-/* Header mount: <main> uses z-index:2 for layout layers; without this, the
-   open mobile nav (position:absolute) is painted under the first section. */
-[data-site-header] {
-  position: relative;
-  z-index: 100;
-}
